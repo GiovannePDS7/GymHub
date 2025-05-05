@@ -1,5 +1,104 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    background: #000;
+}
+
+header {
+    height: 12vh;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.containerHeader {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.containerHeader:nth-child(2) {
+    width: 45%;
+}
+
+.containerHeader:nth-child(3) {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 2vw;
+}
+
+#Logo {
+    width: 10vw;
+    margin-left: 2vw;
+}
+
+#navHeader {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+
+}
+
+.liHeader {
+    list-style: none;
+}
+
+.aHeader {
+    font-family: "Raleway", sans-serif;
+}
+
+.aHeader, .aHeaderBtn {
+    text-decoration: none;
+    font-size: 1.15vw;
+    color: #000;
+    transition: 0.2s ease;
+    font-weight: 400;
+}
+
+.aHeader:hover {
+    color: #D40000;
+}
+
+#btnEntrar, #btnCadastrar {
+    all: unset;
+}
+
+.aHeaderBtn {
+    font-family: "Racing Sans One", sans-serif;
+}
+
+#aEntrar {
+    font-size: 1.4vw;
+    transition: 0.2s ease;
+}
+
+#aEntrar:hover {
+    letter-spacing: 0.6px;
+    color: #D40000;
+}
+
+#aCadastrar {
+    height: 60%;
+}
+
+#btnCadastrar {
+    text-align: center;
+    height: 100%;
+    border-radius: 30px;
+    border: 1px solid #000;
+    color: #fff;
+    background: #D40000;
+    width: 10vw;
+    font-size: 1.4vw;
+    transition: 0.2s ease;
+}
+
+#btnCadastrar:hover {
+    background: #b20000;
 }
