@@ -17,7 +17,7 @@ function zerarIndice() {
 
 function adicionarLetraPalavra() {
     for (i; i <= palavra[indicePalavra].length; i++) {
-        setTimeout(()=>{
+        setTimeout(() => {
             spanTxt.innerHTML = palavra[indicePalavra].slice(0, i);
         }, 120)
     }
@@ -32,27 +32,38 @@ function adicionarLetraPalavra() {
 adicionarLetraPalavra();
 
 const aInicioHeader = document.getElementById('aInicioHeader');
+const aFooterInicio = document.getElementById('aFooterInicio');
 const sectionInicial = document.getElementById('sectionInicial');
 
-aInicioHeader.addEventListener('click', function (){
-    sectionInicial.scrollIntoView({block: "center", behavior: "smooth"})
+aInicioHeader.addEventListener('click', function () {
+    sectionInicial.scrollIntoView({ block: "center", behavior: "smooth" })
+})
+aFooterInicio.addEventListener('click', function () {
+    sectionInicial.scrollIntoView({ block: "center", behavior: "smooth" })
 })
 
 const aObjetivoHeader = document.getElementById('aObjetivoHeader');
+const aFooterObjetivo = document.getElementById('aFooterObjetivo');
 const aBtnInicial = document.getElementById('aBtnInicial');
 const sectionObjetivo = document.getElementById('sectionObjetivo');
 
-aObjetivoHeader.addEventListener('click', function (){
-    sectionObjetivo.scrollIntoView({block: "center", behavior: "smooth"})
+aObjetivoHeader.addEventListener('click', function () {
+    sectionObjetivo.scrollIntoView({ block: "center", behavior: "smooth" })
 })
-
-aBtnInicial.addEventListener('click', function (){
-    sectionObjetivo.scrollIntoView({block: "center", behavior: "smooth"})
+aFooterObjetivo.addEventListener('click', function () {
+    sectionObjetivo.scrollIntoView({ block: "center", behavior: "smooth" })
+})
+aBtnInicial.addEventListener('click', function () {
+    sectionObjetivo.scrollIntoView({ block: "center", behavior: "smooth" })
 })
 
 const aFuncionalidadesHeader = document.getElementById('aFuncionalidadesHeader');
+const aFooterFuncionalidades = document.getElementById('aFooterFuncionalidades');
 const sectionFuncionalidades = document.getElementById('sectionFuncionalidades');
 
-aFuncionalidadesHeader.addEventListener('click', function (){
-    sectionFuncionalidades.scrollIntoView({block: "center", behavior: "smooth"})
+aFuncionalidadesHeader.addEventListener('click', function () {
+    sectionFuncionalidades.scrollIntoView({ block: "center", behavior: "smooth" })
+})
+aFooterFuncionalidades.addEventListener('click', function () {
+    sectionFuncionalidades.scrollIntoView({ block: "center", behavior: "smooth" })
 })
