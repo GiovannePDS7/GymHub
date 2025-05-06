@@ -26,7 +26,7 @@
         <div id="formulario">
             <div id="titlecontainer">
                 <h2 id="h2title">Realize seu cadastro</h2>
-                <span id="spantitle">Já possui login? entre na sua conta <a id="aLogin" href="">aqui</a></span>
+                <span id="spantitle">Já possui login? entre na sua conta <a id="aLogin" href="../Login/login.html">aqui</a></span>
                 <div id="linha"></div>
             </div>
             <div id="containerForm">
@@ -36,11 +36,11 @@
                 </div>
                 <div class="containerInput">
                     <input required type="text" class="inputForm" maxlength="45" id="email">
-                    <label for="nome">Email</label>
+                    <label for="email">Email</label>
                 </div>
                 <div class="containerInput">
                     <input required type="password" class="inputForm" id="senha">
-                    <label for="nome">Senha</label>
+                    <label for="senha">Senha</label>
                 </div>
                 <div class="containerInput">
                     <input required type="password" class="inputForm" id="confirmSenha">
@@ -74,8 +74,6 @@
             }
 
 
-            console.log(senhaVar)
-            console.log(confirmSenhaVar)
             if (senhaVar != confirmSenhaVar) {
                 alert('As senhas não coincidem');
                 return false;
@@ -101,7 +99,7 @@
                     if (resposta.ok) { //Status == 200 'ok'
                         alert('Cadastro efetuado');
                         setTimeout(() => {
-                            window.location = "login.html";
+                            window.location = "../../Pages/Login/login.html";
                         }, "1300");
 
                     } else {

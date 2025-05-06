@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymHub</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../Assets/Logo/LogoIcon.png">
+
+    <link rel="stylesheet" href="./login.css">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="containerVoltar">
+        <a href="../../index.html"><img src="../../Assets/voltar.png" id="voltarIcon" alt=""></a>
+    </div>
+
+    <main>
+        <div id="formulario">
+            <div id="titlecontainer">
+                <h2 id="h2title">Realize seu login</h2>
+                <span id="spantitle">Não possui cadastro? crie sua conta <a id="aCadastro"
+                        href="../Cadastro/cadastro.html">aqui</a></span>
+                <div id="linha"></div>
+            </div>
+            <div id="containerForm">
+                <div class="containerInput">
+                    <input required type="text" class="inputForm" maxlength="45" id="email">
+                    <label for="email">Email</label>
+                </div>
+                <div class="containerInput">
+                    <input required type="password" class="inputForm" id="senha">
+                    <label for="senha">Senha</label>
+                </div>
+                <div id="containerEscSenha">
+                    <a href="#" id="aEscSenha"><span id="spanEscSenha">Esqueceu a senha?</span></a>
+                </div>
+                <button id="btnLogin" onclick="Entrar()">Entrar</button>
+            </div>
+        </div>
+        </div>
+    </main>
+    <script>
+
+        function Entrar() {
+            var emailVar = email.value;
+            var senhaVar = senha.value;
+
+            if (emailVar == "" || senhaVar == "") {
+                alert('Preencha os dados')
+                return false;
+            }
+
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.id;
+
+                        window.location = "../../Pages/Inicial/inicial.html";
+
+
+                    });
+
+                } else {
+                    alert('Login inválido');
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+            return false;
+        }
+
+    </script>
+</body>
+
+</html>

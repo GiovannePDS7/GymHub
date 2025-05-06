@@ -9,6 +9,8 @@
 
     <link rel="stylesheet" href="./style.css">
 
+    <script src="./JS/sessao.js"></script>
+
     <!-- Font -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,10 +20,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
 </head>
 
-<body>
+ <body > <!-- onload="verificarSessao()"-->
     <header>
         <div class="containerHeader">
-            <img src="./Assets/Logo/logoPrincipal.png" id="Logo" alt="">
+            <a href="../../index.html"><img src="../../Assets/Logo/logoPrincipal.png" id="Logo" alt=""></a>
         </div>
         <div class="containerHeader">
             <nav id="navHeader">
@@ -31,7 +33,7 @@
             </nav>
         </div>
         <div class="containerHeader">
-            <button id="btnEntrar"><a class="aHeaderBtn" id="aEntrar" href="#">Entrar</a></button>
+            <button id="btnEntrar"><a class="aHeaderBtn" id="aEntrar" href="./Pages/Login/login.html">Entrar</a></button>
             <a class="aHeaderBtn" id="aCadastrar" href="./Pages/Cadastro/cadastro.html"><button
                     id="btnCadastrar">Cadastrar</button></a>
         </div>

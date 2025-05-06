@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #000;
+}
+
+#voltarIcon {
+    width: 3vw;
+    cursor: pointer;
+}
+
+#containerVoltar {
+    position: absolute;
+    top: 5%;
+    left: 2.5%;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#formulario {
+    width: 45%;
+    height: 60%;
+    background: #000;
+    border: 1px solid #D40000;
+    border-radius: 10px;
+}
+
+#titlecontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 20%;
+}
+
+#h2title {
+    font-family: "Racing Sans One", sans-serif;
+    text-shadow: red 1px 2.3px;
+    font-weight: 200;
+    margin-top: 2vw;
+    color: #fff;
+    text-align: center;
+}
+
+#spantitle {
+    padding: 1vw 0;
+    font-family: "Raleway", sans-serif;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 0.8px;
+    font-size: 1.2vw;
+}
+
+#aCadastro {
+    color: #D40000;
+    transition: 0.3s ease;
+}
+
+#aCadastro:hover {
+    color: #b10303;
+}
+
+#linha {
+    background: #dedede;
+    width: 70%;
+    height: 0.1vw;
+}
+
+
+#containerForm {
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 1vw 0;
+}
+
+.containerInput {
+    width: 60%;
+    position: relative;
+}
+
+label {
+    font-family: "Raleway", sans-serif;
+    color: #D40000;
+    padding: 0 0.2vw;
+    position: absolute;
+    transform: translateY(-53%);
+    top: 53%;
+    left: 1em;
+    pointer-events: none;
+    transition: 0.3s;
+    font-size: 1.3vw;
+}
+
+.inputForm {
+    color: #fff;
+    border: 1.5px solid #D40000;
+    background: transparent;
+    border-radius: 5px;
+    width: 100%;
+    height: 3.1vw;
+    padding: 0 0.8vw;
+    outline: none;
+    font-size: 1.2vw;
+}
+
+.inputForm:focus~label, .inputForm:valid~label {
+    top: -5%;
+    background: #000;
+    font-family: "Racing Sans One", sans-serif;
+    font-weight: 100;
+    text-shadow: red 1px 1px;
+    font-size: 1.3vw;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.inputForm:focus {
+    border: 1.5px solid #b2000094;
+}
+
+
+#btnLogin {
+    all: unset;
+    font-family: "Racing Sans One", sans-serif;
+    font-weight: 100;
+    color: #fff;
+    cursor: pointer;
+    background: #D40000;
+    height: 3vw;
+    width: 10vw;
+    text-align: center;
+    border-radius: 30px;
+    transition: 0.2s ease;
+    font-size: 1.4vw;
+}
+
+#btnLogin:hover {
+    background: #b2000094;
+
+}
+
+#btnLogin:active {
+    transform: scale(0.92);
+
+}
+
+#aEscSenha{
+    font-family: "Raleway", sans-serif;
+    text-decoration: none;
+    color: #d3d3d3;
+    font-size: 1vw;
+    transition: 0.15s ease;
+}
+#aEscSenha:hover{
+    color: #c0c0c0e0;
+    text-decoration: underline;
+}
