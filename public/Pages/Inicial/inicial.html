@@ -5,12 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GymHub</title>
-    <link rel="shortcut icon" type="image/x-icon" href="./Assets/Logo/LogoIcon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../Assets/Logo/LogoIcon.png">
 
     <link rel="stylesheet" href="./inicial.css">
 
     <script src="../../JS/sessao.js"></script>
- 
     <!-- Font -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +18,9 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
 </head>
+
 <body onload="validarSessao()">
+
     <div id="containerFerramentas">
         <div id="containerSair">
             <button id="btnSair" onclick="limparSessao()">Sair</button>
@@ -31,10 +32,10 @@
         </div>
         <div class="containerHeader">
             <nav id="navHeader">
-                <li class="liHeader"><a class="aHeader">Calculadora IMC</a></li>
-                <li class="liHeader"><a class="aHeader" >Criar Treino</a></li>
-                <li class="liHeader"><a class="aHeader" >Check-In</a></li>
-                <li class="liHeader"><a class="aHeader" >Dashboard</a></li>
+                <li class="liHeader"><a href="../CalcIMC/calcIMC.html" class="aHeader">Calculadora IMC</a></li>
+                <li class="liHeader"><a class="aHeader">Criar Treino</a></li>
+                <li class="liHeader"><a class="aHeader">Check-In</a></li>
+                <li class="liHeader"><a class="aHeader">Dashboard</a></li>
             </nav>
         </div>
         <div class="containerHeader">
@@ -47,7 +48,68 @@
             </div>
         </div>
     </header>
-    <span>login realizado</span>
+    <main>
+        <div id="containerCards">
+            <div class="cards">
+                <div class="containerTitle">
+                    <h2 class="titlecard">Calculadora IMC</h2>
+                    <div class="linha"></div>
+                </div>
+                <div class="containerDesc">
+                    <p class="p-descCard">Descubra rapidamente se seu peso está adequado para sua altura utilizando a
+                        Calculadora de IMC (Índice de Massa Corporal). Ideal para acompanhar sua evolução física e
+                        ajustar seus objetivos de treino e alimentação.
+
+                    </p>
+                </div>
+                <div class="containerBtnCard">
+                    <a class="abtncard" href="../CalcIMC/calcIMC.html"><button class="bntCard">Acessar</button></a>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="containerTitle">
+                    <h2 class="titlecard">Criar Treino</h2>
+                    <div class="linha"></div>
+                </div>
+                <div class="containerDesc">
+                    <p class="p-descCard">Monte seu treino personalizado de forma prática! Escolha os grupos musculares
+                        e acompanhe sua progressão na dashboard com um plano ajustado às suas metas e nível de
+                        condicionamento.</p>
+                </div>
+                <div class="containerBtnCard">
+                    <a class="abtncard" href="#"><button class="bntCard">Acessar</button></a>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="containerTitle">
+                    <h2 class="titlecard">Check-In</h2>
+                    <div class="linha"></div>
+                </div>
+                <div class="containerDesc">
+                    <p class="p-descCard">Registre seus treinos na academia e acompanhe sua frequência. Mantenha sua
+                        disciplina em dia e veja seu comprometimento se transformar em resultados!</p>
+                </div>
+                <div class="containerBtnCard">
+                    <a class="abtncard" href="#"><button class="bntCard">Acessar</button></a>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="containerTitle">
+                    <h2 class="titlecard">Dashboard</h2>
+                    <div class="linha"></div>
+                </div>
+                <div class="containerDesc">
+                    <p class="p-descCard">Visualize todos os seus dados em um só lugar! Acompanhe sua evolução,
+                        frequência de treinos, desempenho e muito mais com gráficos e estatísticas personalizadas.</p>
+                </div>
+                <div class="containerBtnCard">
+                    <a class="abtncard" href="#"><button class="bntCard">Acessar</button></a>
+                </div>
+            </div>
+
+        </div>
+    </main>
     <script src="./inicial.js"></script>
 </body>
+
 </html>

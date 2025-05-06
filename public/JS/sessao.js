@@ -1,23 +1,29 @@
 function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
-    var [primeiroNome] = nome.split(' ');
 
-    var b_usuario = document.getElementById("b_usuario");
-
-    if (email != null && nome != null) {
-        b_usuario.innerHTML = primeiroNome;
-    } else {
+    if (email == null || nome == null) {
         window.location = "../../Pages/Login/login.html";
     }
+    else{
+        GetUsuarioNome(nome);
+    }
 }
+
+function GetUsuarioNome(nome){
+    var [primeiroNome] = nome.split(' ');
+    if(nome != null){
+        b_usuario.innerHTML = primeiroNome;
+    }
+}
+
 
 function limparSessao() {
     sessionStorage.clear();
     window.location = "../../Pages/Login/login.html";
 }
 
-function verificarSessao() {
+function verificarSessaoIndex() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
 
