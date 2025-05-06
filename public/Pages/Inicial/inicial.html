@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./inicial.css">
 
     <script src="../../JS/sessao.js"></script>
-
+ 
     <!-- Font -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +20,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
 </head>
 <body onload="validarSessao()">
+    <div id="containerFerramentas">
+        <div id="containerSair">
+            <button id="btnSair" onclick="limparSessao()">Sair</button>
+        </div>
+    </div>
     <header>
         <div class="containerHeader">
             <a href="../../index.html"><img src="../../Assets/Logo/logoPrincipal.png" id="Logo" alt=""></a>
@@ -34,12 +39,15 @@
         </div>
         <div class="containerHeader">
             <div id="containerHeaderUsuario">
-
-                Seja bem vindo(a) <b><span id="b_usuario"></span></b>
-                <img src="" alt="">
+                <div id="containerUser">
+                    Seja bem vindo(a) <b><span id="b_usuario"></span></b>
+                </div>
+                <img src="../../Assets/userIcon.png" id="userIcon" alt="">
+                <img src="../../Assets/setaIconUser.png" id="setaIconUser" alt="">
             </div>
         </div>
     </header>
     <span>login realizado</span>
+    <script src="./inicial.js"></script>
 </body>
 </html>
