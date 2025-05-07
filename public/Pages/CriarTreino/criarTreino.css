@@ -128,36 +128,24 @@ header {
     border: 1px solid #000;
 }
 
+
+
+
 main {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 88vh;
+    flex-direction: column;
 }
 
-#containerform {
+
+#containerForm {
+    margin-top: 3%;
     width: 60%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-    height: 100%;
-}
-
-#containerResultado {
-    height: 30%;
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-}
-
-#spanResultado {
-    color: #fff;
-    font-family: "Raleway", sans-serif;
-    font-size: 1.4vw;
-    margin-bottom: 1.5vw;
 }
 
 #titleForm {
@@ -167,18 +155,41 @@ main {
     font-family: "Racing Sans One", sans-serif;
     font-weight: 200;
     text-shadow: red 1px 2px;
+    margin-top: 2%;
 }
 
-#form {
-    width: 80%;
-    height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
+#spanForm,
+#spanExerc {
+    color: #fff;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.4vw;
     padding: 1vw 0;
 }
 
+#spanExerc {
+    font-size: 1.1vw;
+
+}
+
+.containerInput {
+    width: 65%;
+    position: relative;
+}
+
+.containerExercicio {
+    width: 55%;
+    position: relative;
+    margin-top: 1.2vw;
+    margin-bottom: 1.5vw;
+}
+
+#containerExercicios {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
 
 .containerInput {
     width: 65%;
@@ -210,7 +221,20 @@ label {
     font-size: 1.2vw;
 }
 
-.inputForm:focus~label, .inputForm:valid~label {
+#form {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 1vw 0;
+    border: 1px solid #D40000;
+    border-radius: 10px;
+
+}
+
+.inputForm:focus~label,
+.inputForm:valid~label {
     top: -5%;
     background: #000;
     font-family: "Racing Sans One", sans-serif;
@@ -225,42 +249,71 @@ label {
     border: 1.5px solid #b2000094;
 }
 
-#spanForm {
-    color: #fff;
-    font-family: "Raleway", sans-serif;
-    font-size: 1.4vw;
+#linha,
+#linha2 {
+    height: 0.03vw;
+    width: 80%;
+    background: #ffffff;
+    margin: 1.5vw 0 0.5vw 0;
 }
 
-#btnCalcular {
+#linha2 {
+    width: 40%;
+    margin: 0 0 1.5vw 0;
+}
+
+.btnExercicio {
     all: unset;
-    font-family: "Racing Sans One", sans-serif;
-    font-weight: 100;
-    color: #fff;
+
+    letter-spacing: 0.8px;
     cursor: pointer;
-    background: #D40000;
-    height: 2vw;
-    width: 12vw;
+    font-family: "Raleway", sans-serif;
     text-align: center;
-    border-radius: 30px;
-    transition: 0.2s ease;
-    font-size: 1.2vw;
-}
-
-#btnCalcular:hover {
-    background: #b2000094;
-
-}
-
-#btnCalcular:active {
-    transform: scale(0.92);
-
-}
-
-#h2Resultado {
-    text-align: center;
+    height: 2.4vw;
+    margin-top: 2;
+    border-radius: 4px;
+    margin-bottom: 2vw;
     color: #fff;
-    font-size: 2vw;
+    border: 1px solid #D40000;
+    width: 11vw;
+    font-size: .9vw;
+    transition: 0.2s ease;
+}
+.btnExercicio:active{
+    transform: scale(0.92);
+}
+.btnExercicio:hover {
+    background: #5c000054;
+}
+
+#containerBtnAdd {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#btnCalcular{
+    all: unset;
+
+    cursor: pointer;
+    letter-spacing: 0.8px;
     font-family: "Racing Sans One", sans-serif;
     font-weight: 200;
     text-shadow: red 1px 2px;
+    text-align: center;
+    color: #fff;
+    width: 8.5vw;
+    height: 3vw;
+    background: #D40000;
+    border-radius: 30px;
+    font-size: 1.2vw;
+    transition: 0.2s ease;
 }
+
+#btnCalcular:hover{
+    background: #8d0000;
+}
+#btnCalcular:active{
+    transform: scale(0.92);
+}
+

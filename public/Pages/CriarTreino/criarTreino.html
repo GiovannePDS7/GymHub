@@ -7,7 +7,7 @@
     <title>GymHub</title>
     <link rel="shortcut icon" type="image/x-icon" href="../../Assets/Logo/LogoIcon.png">
 
-    <link rel="stylesheet" href="./calcIMC.css">
+    <link rel="stylesheet" href="./criarTreino.css">
 
     <script src="../../JS/sessao.js"></script>
     <!-- Font -->
@@ -49,27 +49,39 @@
     </header>
 
     <main>
-        <div id="containerform">
-            <h2 id="titleForm">Calculadora Índice de Massa Corporal (IMC)</h2>
+        <h2 id="titleForm">Crie o seu treino personalizado</h2>
+        <div id="containerForm">
             <div id="form">
                 <span id="spanForm">Preencha os dados abaixo</span>
                 <div class="containerInput">
-                    <input required type="number" class="inputForm" id="peso">
-                    <label for="peso">Peso</label>
+                    <input required type="text" class="inputForm" id="treinoNome">
+                    <label for="treinoNome">Nome do treino</label>
                 </div>
-                <div class="containerInput">
-                    <input required type="number" class="inputForm" id="altura">
-                    <label for="altura">Altura (em cm)</label>
+                <div id="linha"></div>
+
+                <span id="spanExerc">Defina o nome dos seus exercícios</span>
+                <div id="containerExercicios">
+                    <div class="containerExercicio">
+                        <input required type="text" class="inputForm exercicio" id="exercicio1">
+                        <label for="exercicio01">Nome do exercício 1</label>
+                    </div>
                 </div>
-                <button id="btnCalcular" onclick="Calcular()">Calcular</button>
+                <div id="linha2"></div>
+                    <div id="containerBtnAdd">  
+                        <button class="btnExercicio" onclick="ExcluirEx()">Excluir exercício</button>
+                        <button class="btnExercicio" onclick="AddEx()">Adicionar exercício</button>
+
             </div>
-            <div id="containerResultado">
-                <h3 id="h2Resultado"></h3>
-                <span id="spanResultado"></span>
-            </div>
+            <button id="btnCalcular" onclick="CriarTreino()">Criar Treino</button>
         </div>
-        <script src="./calcIMC.js"></script>
+        <div id="containerResultado">
+            <h3 id="h2Resultado"></h3>
+            <span id="spanResultado"></span>
+        </div>
+        </div>
     </main>
+
+    <script src="./criarTreino.js"></script>
 </body>
 
 </html>

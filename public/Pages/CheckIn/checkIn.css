@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #000;
+}
+
+header {
+    z-index: 999;
+    position: relative;
+    width: 100%;
+    height: 12vh;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.51);
+}
+
+.containerHeader {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.containerHeader:nth-child(2) {
+    width: 45%;
+}
+
+.containerHeader:nth-child(3) {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#Logo {
+    width: 10vw;
+    margin-left: 2vw;
+}
+
+#navHeader {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+
+}
+
+.liHeader {
+    list-style: none;
+}
+
+.aHeader {
+    cursor: pointer;
+    font-family: "Raleway", sans-serif;
+}
+
+.aHeader,
+.aHeaderBtn {
+    text-decoration: none;
+    font-size: 1.15vw;
+    color: #000;
+    transition: 0.2s ease;
+    font-weight: 400;
+}
+
+.aHeader:hover {
+    color: #D40000;
+}
+
+#containerHeaderUsuario {
+    font-family: "Raleway", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#userIcon {
+    width: 2.2vw;
+    margin-left: 0.8vw;
+}
+
+#containerUser {
+    white-space: nowrap;
+}
+
+#setaIconUser {
+    width: 2vw;
+    margin-left: 0.3vw;
+    cursor: pointer;
+}
+
+#containerFerramentas {
+    position: absolute;
+    background: #fff;
+    height: 0%;
+    width: 8vw;
+    top: 12%;
+    right: 1%;
+    transition: 0.1s ease;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#btnSair {
+    all: unset;
+    cursor: pointer;
+    font-family: "Raleway", sans-serif;
+    color: #fff;
+    background: #D40000;
+    width: 5vw;
+    text-align: center;
+    padding: 0.2vw 0;
+    border-radius: 5px;
+    font-size: 1vw;
+    transition: 0.3 ease;
+}
+
+#btnSair:hover {
+    background: #bd0000;
+    border: 1px solid #000;
+}
