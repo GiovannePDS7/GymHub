@@ -54,19 +54,24 @@ function ExcluirEx() {
 }
 
 function CriarTreino() {
-
+    var email = sessionStorage.EMAIL_USUARIO;
+    var nome = sessionStorage.NOME_USUARIO;
     var nomeTreinoVar = document.getElementById('treinoNome').value;
     var nomeExerciciosVar = document.querySelectorAll('.exercicio');
     var idUsuarioVar = sessionStorage.ID_USUARIO;
 
+    console.log(email)
+    console.log(nome)
+    console.log(idUsuarioVar)
+
     if (nomeTreinoVar != '') {
-        nomeExerciciosVar.forEach(e => {
-            console.log(e.value)
-            if (e.value == '') {
+
+        for(let i = 0; i < nomeExerciciosVar.length; i++){
+            if(nomeExerciciosVar[i].value == ''){
                 alert('Prencha todos os exercícios');
                 return false;
             }
-        })
+        }
 
         fetch("/treinos/cadastrar", {
             method: "POST",
@@ -90,8 +95,8 @@ function CriarTreino() {
 
                 } else {
                     var erroDaController = await resposta.json(); //Recebe qualquer erro marcado da controller
-                    console.log('Erro ao cadastrar')
-                    alert('Erro ao cadastrar: ' + erroDaController.erroEmail) //Se fosse outro erro sem ser de email acredito que daria um alert inconsistente
+                    console.log('Erro ao cadastrar treino')
+                    alert('Erro ao cadastrar: ' + erroDaController.erroTreino) //Se fosse outro erro sem ser de email acredito que daria um alert inconsistente
                 }
             })
             .catch(function (resposta) {

@@ -6,3 +6,5 @@ var treinoController = require("../controllers/treinoController");
 router.post("/cadastrar", function (req, res) {
     treinoController.cadastrar(req, res);
 })
+
+module.exports = router;

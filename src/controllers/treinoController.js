@@ -21,14 +21,17 @@ function cadastrar(req, res) {
                 }
             ).catch(
                 function (erro) {
-                    console.log('Erro vindo do minha controller: ' + erro);
+                    console.log('Erro vindo da minha model: ' + erro);
 
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage); // Retorna um erro interno '500' e a msg do sql
-
+                    if (erro.message == "Já existe um treino com esse nome") { // Aqui eu vejo se a mensagem de erro é a mesma definida para email ja cadastrado
+                        res.status(400).json({ erroTreino: erro.message }) // Retorna uma res. com Bad Request enviando um JSON com atributo do erro
+                    } else {
+                        console.log(
+                            "\nHouve um erro ao realizar o cadastro! Erro: ",
+                            erro.sqlMessage
+                        );
+                        res.status(500).json(erro.sqlMessage); // Retorna um erro interno '500' e a msg do sql
+                    }
                 }
             );
     }

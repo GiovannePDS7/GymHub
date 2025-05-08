@@ -21,11 +21,9 @@ function autenticar(req, res) {
 
 
                         res.json({
-                            id: resultadoAutenticar[0].id,
+                            id: resultadoAutenticar[0].idUsuario,
                             email: resultadoAutenticar[0].email,
                             nome: resultadoAutenticar[0].nome,
-                            senha: resultadoAutenticar[0].senha,
-
                         });
 
 
@@ -69,11 +67,12 @@ function cadastrar(req, res) {
                 }
             ).catch(
                 function (erro) {
-                    console.log('Erro vindo do minha controller: ' + erro);
+                    // link de onde achei a estrutura desse trecho de código: https://pt.stackoverflow.com/questions/344230/gerar-new-error-e-obter-este-erro-no-catch-do-controller
+                    console.log('Erro vindo da minha model: ' + erro);
 
-                    if (erro.message == "Email já cadastrado") { // Aqui eu vejo se a mensagem de erro é a mesma definida para email ja cadastrado
+                    if (erro.message == "Já existe um treino com esse nome") { // Aqui eu vejo se a mensagem de erro é a mesma definida para email ja cadastrado
                         res.status(400).json({ erroEmail: erro.message }) // Retorna uma res. com Bad Request enviando um JSON com atributo do erro
-                    }else{
+                    } else {
                         console.log(
                             "\nHouve um erro ao realizar o cadastro! Erro: ",
                             erro.sqlMessage
