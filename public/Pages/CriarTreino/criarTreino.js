@@ -33,9 +33,7 @@ function AddEx() {
 
     var todosExercicios = document.querySelectorAll('.exercicio')
     for (let j = 0; j < listaValores.length; j++) {
-        if (j < todosExercicios.length) {
-            todosExercicios[j].value = listaValores[j]
-        }
+        todosExercicios[j].value = listaValores[j]
     }
 }
 
@@ -66,8 +64,8 @@ function CriarTreino() {
 
     if (nomeTreinoVar != '') {
 
-        for(let i = 0; i < nomeExerciciosVar.length; i++){
-            if(nomeExerciciosVar[i].value == ''){
+        for (let i = 0; i < nomeExerciciosVar.length; i++) {
+            if (nomeExerciciosVar[i].value == '') {
                 alert('Prencha todos os exercícios');
                 return false;
             }
