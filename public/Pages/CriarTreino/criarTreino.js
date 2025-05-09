@@ -87,9 +87,6 @@ function CriarTreino() {
 
                 if (resposta.ok) { //Status == 200 'ok'
                     alert('Treino cadastrado com sucesso');
-                    setTimeout(() => {
-                        window.location = "../../Pages/Inicial/inicial.html";
-                    }, "1300");
 
                 } else {
                     var erroDaController = await resposta.json(); //Recebe qualquer erro marcado da controller
@@ -101,19 +98,41 @@ function CriarTreino() {
                 console.log(`#ERRO: ${resposta}`);
             });
 
-        return false;
 
+        nomeExerciciosVar.forEach(e => {
+            fetch("/exercicios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    nomeExercicioServer: e.value,
+                    idUsuarioServer: idUsuarioVar
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) { //Status == 200 'ok'
+
+                    } else {
+                        //Recebe qualquer erro marcado da controller
+                        alert.log('Erro ao cadastrar exercicio')
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+        })
+
+        setTimeout(() => {
+            window.location = "../../Pages/CriarTreino/criarTreino.html";
+        }, "1300");
+        return false;
     }
     else {
         alert('Preencha o campo nome do treino')
         return false;
     }
-
-
-
-
-
-
-
-
 }

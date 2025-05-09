@@ -43,3 +43,6 @@ create table registro_exercicio(
     carga decimal(4, 2) not null,
     repeticoes int not null
 );
+
+select * from treino;
+

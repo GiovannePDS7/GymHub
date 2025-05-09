@@ -26,7 +26,8 @@
         <div id="formulario">
             <div id="titlecontainer">
                 <h2 id="h2title">Realize seu cadastro</h2>
-                <span id="spantitle">Já possui login? entre na sua conta <a id="aLogin" href="../Login/login.html">aqui</a></span>
+                <span id="spantitle">Já possui login? entre na sua conta <a id="aLogin"
+                        href="../Login/login.html">aqui</a></span>
                 <div id="linha"></div>
             </div>
             <div id="containerForm">
@@ -98,9 +99,9 @@
 
                     if (resposta.ok) { //Status == 200 'ok'
                         alert('Cadastro efetuado');
-                        setTimeout(() => {
-                            window.location = "../../Pages/Login/login.html";
-                        }, "1300");
+
+                        window.location = "../../Pages/Login/login.html";
+
 
                     } else {
                         var erroDaController = await resposta.json(); //Recebe qualquer erro marcado da controller

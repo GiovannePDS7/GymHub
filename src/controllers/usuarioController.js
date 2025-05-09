@@ -70,7 +70,7 @@ function cadastrar(req, res) {
                     // link de onde achei a estrutura desse trecho de código: https://pt.stackoverflow.com/questions/344230/gerar-new-error-e-obter-este-erro-no-catch-do-controller
                     console.log('Erro vindo da minha model: ' + erro);
 
-                    if (erro.message == "Já existe um treino com esse nome") { // Aqui eu vejo se a mensagem de erro é a mesma definida para email ja cadastrado
+                    if (erro.message == "Email já cadastrado") { // Aqui eu vejo se a mensagem de erro é a mesma definida para email ja cadastrado
                         res.status(400).json({ erroEmail: erro.message }) // Retorna uma res. com Bad Request enviando um JSON com atributo do erro
                     } else {
                         console.log(
