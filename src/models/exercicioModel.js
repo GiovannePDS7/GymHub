@@ -12,7 +12,7 @@ async function cadastrar(nomeExercicio, idUsuario) {
     try{
         var ultimoTreino = await database.executar(pegarTreino);
 
-        console.log("Executando a instrução SQL: \n" + ultimoTreino)
+        console.log("Executando a instrução SQL: \n" + pegarTreino)
         console.log(ultimoTreino)
 
         var idUltimoTreino = ultimoTreino[0].idTreino;

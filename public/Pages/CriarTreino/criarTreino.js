@@ -88,6 +88,33 @@ function CriarTreino() {
                 if (resposta.ok) { //Status == 200 'ok'
                     alert('Treino cadastrado com sucesso');
 
+                    nomeExerciciosVar.forEach(e => {
+                        fetch("/exercicios/cadastrar", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                                // crie um atributo que recebe o valor recuperado aqui
+                                nomeExercicioServer: e.value,
+                                idUsuarioServer: idUsuarioVar
+                            }),
+                        })
+                            .then(function (resposta) {
+                                console.log("resposta: ", resposta);
+
+                                if (resposta.ok) { //Status == 200 'ok'
+
+                                } else {
+                                    //Recebe qualquer erro marcado da controller
+                                    alert.log('Erro ao cadastrar exercicio')
+                                }
+                            })
+                            .catch(function (resposta) {
+                                console.log(`#ERRO: ${resposta}`);
+                            });
+                    })
+
                 } else {
                     var erroDaController = await resposta.json(); //Recebe qualquer erro marcado da controller
                     console.log('Erro ao cadastrar treino')
@@ -99,32 +126,7 @@ function CriarTreino() {
             });
 
 
-        nomeExerciciosVar.forEach(e => {
-            fetch("/exercicios/cadastrar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    // crie um atributo que recebe o valor recuperado aqui
-                    nomeExercicioServer: e.value,
-                    idUsuarioServer: idUsuarioVar
-                }),
-            })
-                .then(function (resposta) {
-                    console.log("resposta: ", resposta);
 
-                    if (resposta.ok) { //Status == 200 'ok'
-
-                    } else {
-                        //Recebe qualquer erro marcado da controller
-                        alert.log('Erro ao cadastrar exercicio')
-                    }
-                })
-                .catch(function (resposta) {
-                    console.log(`#ERRO: ${resposta}`);
-                });
-        })
 
         setTimeout(() => {
             window.location = "../../Pages/CriarTreino/criarTreino.html";
