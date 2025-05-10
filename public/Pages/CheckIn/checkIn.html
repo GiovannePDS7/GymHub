@@ -17,6 +17,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
 </head>
 
 <body onload="validarSessao()">
@@ -47,10 +49,29 @@
             </div>
         </div>
     </header>
+    <main>
+        <h2 id="titleForm">Faça seu Check-In</h2>
+        <div id="containerForm">
+            <div id="form">
+                <span id="spanForm">Selecione seu treino e preencha os dados</span>
+                <div class="containerInput">
+                    <select name="Treino" id="selectTreino">
+                        <option class="optTreino" value="">Selecione o Treino</option>
 
+                    </select>
+                </div>
+                <div id="linha"></div>
+                <div id="containerExercicios">
+                    
+                </div>
+                <div id="linha2"></div>
+                <button id="btnRegistrar" onclick="CriarTreino()">Registrar</button>
+            </div>
+    </main>
 
 
 
     <script src="./checkIn.js"></script>
 </body>
+
 </html>

@@ -19,6 +19,8 @@ var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var treinoRouter = require("./src/routes/treinos");
 var exercicioRouter = require("./src/routes/exercicios");
+var RegisTreinoRouter = require("./src/routes/registroTreino");
+var RegisExercicioRouter = require("./src/routes/registroExercicio");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -30,6 +32,8 @@ app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/treinos", treinoRouter);
 app.use("/exercicios", exercicioRouter);
+app.use("/registroTreino", RegisTreinoRouter);
+app.use("/registroExercicio", RegisExercicioRouter);
 
 
 app.listen(PORTA_APP, function () {

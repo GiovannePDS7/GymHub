@@ -44,5 +44,8 @@ create table registro_exercicio(
     repeticoes int not null
 );
 
+insert into usuario(nome, email, senha) values ('Giovanne', 'giovanne3282@gmail.com', '3282');
+
 select * from treino;
+select * from usuario;
 

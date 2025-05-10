@@ -171,10 +171,6 @@ main {
 
 }
 
-.containerInput {
-    width: 65%;
-    position: relative;
-}
 
 .containerExercicio {
     width: 55%;
@@ -245,6 +241,10 @@ label {
     letter-spacing: 1px;
 }
 
+.subContainerCargaRep {
+    position: relative;
+}
+
 .inputForm:focus {
     border: 1.5px solid #b2000094;
 }
@@ -279,9 +279,11 @@ label {
     font-size: .9vw;
     transition: 0.2s ease;
 }
-.btnExercicio:active{
+
+.btnExercicio:active {
     transform: scale(0.92);
 }
+
 .btnExercicio:hover {
     background: #5c000054;
 }
@@ -292,7 +294,7 @@ label {
     justify-content: space-between;
 }
 
-#btnCalcular{
+#btnCalcular {
     all: unset;
 
     cursor: pointer;
@@ -310,10 +312,10 @@ label {
     transition: 0.2s ease;
 }
 
-#btnCalcular:hover{
+#btnCalcular:hover {
     background: #8d0000;
 }
-#btnCalcular:active{
+
+#btnCalcular:active {
     transform: scale(0.92);
 }
-

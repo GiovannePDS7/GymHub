@@ -93,6 +93,15 @@ header {
     cursor: pointer;
 }
 
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 2vw;
+    width: 100%;
+}
+
 #containerFerramentas {
     position: absolute;
     background: #fff;
@@ -126,4 +135,203 @@ header {
 #btnSair:hover {
     background: #bd0000;
     border: 1px solid #000;
+}
+
+
+#titleForm {
+    text-align: center;
+    color: #fff;
+    font-size: 2.3vw;
+    font-family: "Racing Sans One", sans-serif;
+    font-weight: 200;
+    text-shadow: red 1px 2px;
+    margin-top: 2%;
+}
+
+
+#containerForm {
+    margin-top: 3%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+#spanForm {
+    color: #fff;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.4vw;
+    padding: 1vw 0;
+}
+
+
+.containerInput {
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    font-family: "Raleway", sans-serif;
+    color: #D40000;
+    padding: 0 0.2vw;
+    position: absolute;
+    transform: translateY(-53%);
+    top: 53%;
+    left: 1.5em;
+    pointer-events: none;
+    transition: 0.3s;
+    font-size: 1.3vw;
+}
+
+.subContainerCargaRep label {
+    left: 0.4em
+}
+
+
+.inputFormCargaRep {
+    all: unset;
+}
+
+.inputForm, .inputFormCargaRep {
+    font-family: "Inter", sans-serif;
+    color: #fff;
+    border: 1.5px solid #D40000;
+    background: transparent;
+    border-radius: 5px;
+    width: 100%;
+    height: 3vw;
+    padding: 0 0.8vw;
+    outline: none;
+    font-size: 1.2vw;
+}
+
+#form {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 1vw 0;
+    border: 1px solid #D40000;
+    border-radius: 10px;
+
+}
+
+.inputForm~label, .inputFormCargaRep:focus~label, .inputFormCargaRep:valid~label {
+    top: -5%;
+    background: #000;
+    font-family: "Racing Sans One", sans-serif;
+    font-weight: 100;
+    text-shadow: red 1px 1px;
+    font-size: 1.3vw;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.inputForm:focus, .inputFormCargaRep:focus {
+    border: 1.5px solid #b2000094;
+}
+
+#linha,
+#linha2 {
+    height: 0.03vw;
+    width: 80%;
+    background: #ffffff;
+    margin: 1.5vw 0 0.5vw 0;
+}
+
+#linha2 {
+    width: 40%;
+    margin: 0 0 1.5vw 0;
+}
+
+.containerExercicio {
+    width: 100%;
+    position: relative;
+    margin-top: 1.2vw;
+    margin-bottom: 1.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+.containerCargaRep {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#containerExercicios {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 3%;
+}
+
+
+#btnRegistrar {
+    all: unset;
+
+    cursor: pointer;
+    letter-spacing: 0.8px;
+    font-family: "Racing Sans One", sans-serif;
+    font-weight: 200;
+    text-shadow: red 1px 2px;
+    text-align: center;
+    color: #fff;
+    width: 8.5vw;
+    height: 3vw;
+    background: #D40000;
+    border-radius: 30px;
+    font-size: 1.2vw;
+    transition: 0.2s ease;
+}
+
+#btnRegistrar:hover {
+    background: #8d0000;
+}
+
+#btnRegistrar:active {
+    transform: scale(0.92);
+}
+
+#selectTreino {
+    font-family: "Racing Sans One", sans-serif;
+    font-weight: 100;
+    margin-top: 3%;
+    width: 15vw;
+    height: 2.7vw;
+    background: transparent;
+    color: #fff;
+    font-size: 1.3vw;
+    border-radius: 5px;
+    border: 1.5px solid #D40000;
+}
+
+#selectTreino:focus {
+    border: 1.5px solid #b2000094;
+}
+
+.optTreino {
+    background: #000;
+}
+
+.inputFormCargaRep {
+    width: 75%;
+}
+
+.containerExInput {
+    width: 48%;
+}
+
+.subContainerCargaRep {
+    width: 45%;
+    position: relative;
 }

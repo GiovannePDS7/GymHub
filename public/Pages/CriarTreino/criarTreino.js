@@ -1,3 +1,4 @@
+var setaIconUser = document.getElementById('setaIconUser');
 var containerFerramentas = document.getElementById('containerFerramentas');
 
 
@@ -138,3 +139,4 @@ function CriarTreino() {
         return false;
     }
 }
+
