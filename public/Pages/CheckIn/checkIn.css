@@ -237,6 +237,7 @@ label {
 
 #linha,
 #linha2 {
+    display: none;
     height: 0.03vw;
     width: 80%;
     background: #ffffff;
@@ -244,6 +245,7 @@ label {
 }
 
 #linha2 {
+
     width: 40%;
     margin: 0 0 1.5vw 0;
 }
@@ -278,7 +280,7 @@ label {
 
 #btnRegistrar {
     all: unset;
-
+    display: none;
     cursor: pointer;
     letter-spacing: 0.8px;
     font-family: "Racing Sans One", sans-serif;

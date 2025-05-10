@@ -5,6 +5,9 @@ var listaTreinos = [];
 var listaExercicios = [];
 var selectTreino = document.getElementById('selectTreino')
 var containerExercicios = document.getElementById('containerExercicios');
+var linha = document.getElementById('linha')
+var linha2 = document.getElementById('linha2')
+var btnRegistrar = document.getElementById('btnRegistrar')
 
 setaIconUser.addEventListener('click', function () {
     if (containerFerramentas.style.height == '10%') {
@@ -38,6 +41,11 @@ function RecuperarTreinos() {
                 resposta.json().then(json => {
                     // console.log(json);
 
+                    if (json.length == 0) {
+                        alert('Você não possui treinos cadastrados, crie um já!')
+
+                        window.location = "../../Pages/CriarTreino/criarTreino.html";
+                    }
                     for (let i = 0; i < json.length; i++) {
                         var treino = {
                             nomeTreino: json[i].nome,
@@ -83,6 +91,10 @@ selectTreino.addEventListener('change', function () {
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
+                    linha.style.display = 'block'
+                    linha2.style.display = 'block'
+                    btnRegistrar.style.display = 'block'
+
                     listaExercicios = []
                     resposta.json().then(json => {
 
@@ -130,6 +142,10 @@ selectTreino.addEventListener('change', function () {
             });
     }
     else {
-        alert('Escolha um treino')
+
+        linha.style.display = 'none'
+        linha2.style.display = 'none'
+        btnRegistrar.style.display = 'none'
+
     }
 })
