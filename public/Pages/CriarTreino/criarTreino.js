@@ -87,9 +87,9 @@ function CriarTreino() {
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) { //Status == 200 'ok'
-                    alert('Treino cadastrado com sucesso');
 
-                    nomeExerciciosVar.forEach(e => {
+
+                    for (let i = 0; i < nomeExerciciosVar.length; i++) {
                         fetch("/exercicios/cadastrar", {
                             method: "POST",
                             headers: {
@@ -97,7 +97,7 @@ function CriarTreino() {
                             },
                             body: JSON.stringify({
                                 // crie um atributo que recebe o valor recuperado aqui
-                                nomeExercicioServer: e.value,
+                                nomeExercicioServer: nomeExerciciosVar[i].value,
                                 idUsuarioServer: idUsuarioVar
                             }),
                         })
@@ -105,16 +105,19 @@ function CriarTreino() {
                                 console.log("resposta: ", resposta);
 
                                 if (resposta.ok) { //Status == 200 'ok'
-
+                                    console.log(resposta);
                                 } else {
                                     //Recebe qualquer erro marcado da controller
-                                    alert.log('Erro ao cadastrar exercicio')
+                                    console.log('Erro ao cadastrar exercicio')
                                 }
                             })
                             .catch(function (resposta) {
                                 console.log(`#ERRO: ${resposta}`);
                             });
-                    })
+                    }
+                    alert('Treino cadastrado com sucesso');
+
+                    window.location = "../../Pages/CriarTreino/criarTreino.html";
 
                 } else {
                     var erroDaController = await resposta.json(); //Recebe qualquer erro marcado da controller
@@ -127,11 +130,6 @@ function CriarTreino() {
             });
 
 
-
-
-        setTimeout(() => {
-            window.location = "../../Pages/CriarTreino/criarTreino.html";
-        }, "1300");
         return false;
     }
     else {
