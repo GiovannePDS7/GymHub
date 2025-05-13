@@ -40,12 +40,13 @@ create table registro_exercicio(
     fkRegisTreino int not null,
     constraint fkRegisTreino_registro_exercicio foreign key (fkRegisTreino) references registro_treino(idRegisTreino),
     constraint pkComposta primary key(idRegisExercicio, fkRegisTreino),
+    fkTreino int not null,
+	constraint fkTreino_registro_exercicio foreign key (fkTreino) references registro_treino(fkTreino),
     nome varchar(45) not null,
     carga decimal(4, 2) not null,
     series int not null,
     repeticoes int not null
 );
-
 insert into usuario(nome, email, senha) values ('Giovanne', 'giovanne3282@gmail.com', '3282');
 
 insert into treino (nome, fkUsuario) values ('Peito e Tríceps', 1);
@@ -69,3 +70,9 @@ select * from treino;
 select * from exercicio where fkTreino = 2;
 
 select * from registro_treino;
+
+select idRegisTreino, fkTreino from registro_treino where fkUsuario = 1 order by idRegisTreino desc limit 1;
+
+select * from registro_exercicio;
+
+select * from exercicio where fkTreino = '3';
