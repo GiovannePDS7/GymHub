@@ -45,7 +45,8 @@ create table registro_exercicio(
     nome varchar(45) not null,
     carga decimal(4, 2) not null,
     series int not null,
-    repeticoes int not null
+    repeticoes int not null,
+    data TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- adicionar na modelagem
 );
 insert into usuario(nome, email, senha) values ('Giovanne', 'giovanne3282@gmail.com', '3282');
 
@@ -65,8 +66,6 @@ select * from treino;
 select * from exercicio;
 select * from usuario;
 
-select * from treino;
-
 select * from exercicio where fkTreino = 2;
 
 select * from registro_treino;
@@ -76,3 +75,41 @@ select idRegisTreino, fkTreino from registro_treino where fkUsuario = 1 order by
 select * from registro_exercicio;
 
 select * from exercicio where fkTreino = '3';
+
+
+insert into registro_treino(fkTreino, fkUsuario, data)
+values
+(1, 1, CURDATE() - INTERVAL 1 MONTH), 
+(2, 1, CURDATE() - INTERVAL 2 MONTH), 
+(1, 1, CURDATE() - INTERVAL 3 MONTH),  
+(2, 1, CURDATE() - INTERVAL 4 MONTH);
+
+insert into registro_exercicio(fkRegisTreino, fkTreino, nome, carga, series, repeticoes)
+values
+(1, 1, 'Supino Reto', 80.00, 4, 12),
+(1, 1, 'Crucifixo Inclinado', 25.00, 4, 12),
+(1, 1, 'Tríceps Corda', 30.00, 4, 12),
+(2, 2, 'Puxada Alta', 60.00, 4, 12),
+(2, 2, 'Remada Unilateral', 40.00, 4, 12),
+(2, 2, 'Rosca Direta', 20.00, 4, 12),
+(3, 1, 'Supino Reto', 85.00, 4, 10),
+(3, 1, 'Crucifixo Inclinado', 27.50, 4, 10),
+(3, 1, 'Tríceps Corda', 32.50, 4, 10);
+
+select * from registro_treino
+where data >= CURDATE() - INTERVAL 2 MONTH;
+
+select 
+    nome, 
+    fkRegisTreino, 
+    carga, 
+    series, 
+    repeticoes, 
+    data,
+    MONTH(data) as mes,
+    YEAR(data) as ano
+from registro_exercicio
+where nome = 'Supino Reto' 
+  and data >= CURDATE() - INTERVAL 3 MONTH
+order by data;
+

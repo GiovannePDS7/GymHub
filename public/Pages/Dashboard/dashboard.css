@@ -9,6 +9,13 @@ body {
     background: #000;
 }
 
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 header {
     z-index: 999;
     position: relative;
@@ -128,3 +135,53 @@ header {
     border: 1px solid #000;
 }
 
+#titleForm {
+    text-align: center;
+    color: #fff;
+    font-size: 2.3vw;
+    font-family: "Racing Sans One", sans-serif;
+    font-weight: 200;
+    text-shadow: red 1px 2px;
+    margin-top: 2%;
+}
+
+#selectTreino, #selectExercicio {
+    font-family: "Racing Sans One", sans-serif;
+    font-weight: 100;
+    width: 15vw;
+    height: 2.7vw;
+    background: transparent;
+    color: #fff;
+    font-size: 1.15vw;
+    border-radius: 5px;
+    border: 1.5px solid #D40000;
+}
+
+#selectTreino:focus, #selectExercicio:focus {
+    border: 1.5px solid #b2000094;
+}
+
+#containerSelect {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#spanAux {
+    color: #fff;
+    font-size: 1.2vw;
+    margin-top: 2%;
+    font-family: "Raleway", sans-serif;
+}
+
+.optTreino, .optExercicio {
+    background: #000;
+}
+
+#tituloGraficos {
+    font-family: "Raleway", sans-serif;
+    font-size: 1.3vw;
+    color: #fff;
+}
