@@ -70,8 +70,21 @@ addEventListener('DOMContentLoaded', function () { // ativa quando o HTML for to
     RecuperarTreinos()
 })
 
+var selectExercicio = document.getElementById('selectExercicio');
+var selectIntervalo = document.getElementById('selectIntervalo');
+
+selectExercicio.addEventListener('change', function(){
+    if(selectExercicio.value != ''){
+        selectIntervalo.disabled = false;
+    }
+    else{
+        alert('Selecione um exercício')
+        selectIntervalo.disabled = true;
+    }
+})
+
 selectTreino.addEventListener('change', function () {
-    var selectExercicio = document.getElementById('selectExercicio');
+
     selectExercicio.innerHTML = '<option class="optExercicio" value="">Selecione o Exercicio</option>';
     if (selectTreino.value != '') {
         fetch("/registroExercicio/pegarExercicio", {
@@ -117,6 +130,7 @@ selectTreino.addEventListener('change', function () {
             });
     }
     else {
+        alert('Selecione um treino')
         selectExercicio.disabled = true;
     }
 })
@@ -125,7 +139,7 @@ let proximaAtualizacao;
 var selectExercicio = document.getElementById('selectExercicio')
 var grafico = document.getElementById("grafico")
 
-selectExercicio.addEventListener('change', exibirGraficoEvolucaoDoUsuario)
+selectIntervalo.addEventListener('change', exibirGraficoEvolucaoDoUsuario)
 
 function exibirGraficoEvolucaoDoUsuario() {
     grafico.innerHTML = ''
@@ -138,17 +152,15 @@ function exibirGraficoEvolucaoDoUsuario() {
         }
         grafico.innerHTML += `
                         <h3 id="tituloGraficos">
-                            <span id="tituloGrafico">Exibindo evolução média das cargas do treino: <b>${nomeTreino}</b> para o exercício: <b>${selectExercicio.value}</b> dos últimos 3 meses</span>
+                            <span id="tituloGrafico">Exibindo evolução média das cargas do treino: <b>${nomeTreino}</b> para o exercício: <b>${selectExercicio.value}</b> dos últimos ${selectIntervalo.value} meses</span>
                         </h3>
                         <div class="graph">
                             <canvas id="myChartCanvas"></canvas>
                         </div>
                 `
-
-        // obterDadosGrafico(item.id)
     }
     else {
-        
+
         alert('Selecione um exercício')
     }
 
