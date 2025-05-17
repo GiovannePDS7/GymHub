@@ -66,7 +66,47 @@ function registrarExercicio(req, res) {
     }
 }
 
+function pegarUltimosDados(req, res) {
+    var idTreino = req.params.idTreino;
+    var nomeExercicio = req.params.nomeExercicio;
+    var intervalo = req.params.intervalo;
+    console.log('idTreino - controller: ' + idTreino)
+    console.log('nomeExercicio - controller ' + nomeExercicio)
+    console.log('intervalo - controller: ' + intervalo)
+
+    regisExercicioModel.pegarUltimosDados(idTreino, nomeExercicio, intervalo).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimos dados.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function pegarDadosTempoReal(req, res) {
+    var idTreino = req.params.idTreino;
+    var nomeExercicio = req.params.nomeExercicio;
+
+    regisExercicioModel.pegarDadosTempoReal(idTreino, nomeExercicio).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar medidas em tempo real.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
     pegarExercicio,
-    registrarExercicio
+    registrarExercicio,
+    pegarUltimosDados,
+    pegarDadosTempoReal
 }

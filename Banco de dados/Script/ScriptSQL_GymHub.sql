@@ -46,8 +46,9 @@ create table registro_exercicio(
     carga decimal(4, 2) not null,
     series int not null,
     repeticoes int not null,
-    data TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- adicionar na modelagem
+    data TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
 );
+
 insert into usuario(nome, email, senha) values ('Giovanne', 'giovanne3282@gmail.com', '3282');
 
 insert into treino (nome, fkUsuario) values ('Peito e Tríceps', 1);
@@ -99,17 +100,77 @@ values
 select * from registro_treino
 where data >= CURDATE() - INTERVAL 2 MONTH;
 
-select 
-    nome, 
-    fkRegisTreino, 
-    carga, 
-    series, 
-    repeticoes, 
-    data,
-    MONTH(data) as mes,
-    YEAR(data) as ano
-from registro_exercicio
-where nome = 'Supino Reto' 
-  and data >= CURDATE() - INTERVAL 3 MONTH
-order by data;
+SET lc_time_names = 'pt_BR'; -- Aqui eu coloco a configração para pt-br para retornar os meses em portugues
 
+-- Select que retorna a média das cargas dos ultimox X meses de um exercício específico
+select
+    date_format(data, '%M') as mes,
+    round(avg(carga), 1) as media_carga
+from
+    registro_exercicio
+where
+    nome = 'Supino Reto'
+    and data between date_format(curdate() - interval '2' month,  '%Y-%m-01')
+                and curdate()
+    and fkTreino = '1'
+group by
+     date_format(data, '%M'), year(data), month(data)
+order by
+    year(data), month(data) desc
+limit 3;
+
+-- select para recuperar a media do ultimo mes inserido
+
+select
+    date_format(data, '%M') as mes,
+    round(avg(carga), 1) as media_carga
+from
+    registro_exercicio
+where
+    nome = 'Supino Reto'
+    and fkTreino = 1
+group by
+     date_format(data, '%M'), year(data), month(data)
+order by
+    year(data), month(data) desc
+limit 1;
+
+-- Janeiro
+INSERT INTO registro_exercicio (fkRegisTreino, fkTreino, nome, carga, series, repeticoes, data)
+VALUES 
+(1, 1, 'Supino Reto', 74.0, 4, 10, '2025-01-10'),
+(1, 1, 'Supino Reto', 76.0, 4, 10, '2025-01-15');
+
+-- Fevereiro
+INSERT INTO registro_exercicio (fkRegisTreino, fkTreino, nome, carga, series, repeticoes, data)
+VALUES 
+(2, 1, 'Supino Reto', 77.0, 4, 10, '2025-02-10'),
+(2, 1, 'Supino Reto', 78.0, 4, 10, '2025-02-17');
+
+-- Março
+INSERT INTO registro_exercicio (fkRegisTreino, fkTreino, nome, carga, series, repeticoes, data)
+VALUES 
+(3, 1, 'Supino Reto', 80.0, 4, 10, '2025-03-05'),
+(3, 1, 'Supino Reto', 80.0, 4, 10, '2025-03-20');
+
+-- Abril
+INSERT INTO registro_exercicio (fkRegisTreino, fkTreino, nome, carga, series, repeticoes, data)
+VALUES 
+(4, 1, 'Supino Reto', 82.0, 4, 10, '2025-04-08'),
+(4, 1, 'Supino Reto', 83.0, 4, 10, '2025-04-22');
+
+-- Maio
+INSERT INTO registro_exercicio (fkRegisTreino, fkTreino, nome, carga, series, repeticoes, data)
+VALUES 
+(5, 1, 'Supino Reto', 84.0, 4, 10, '2025-05-05'),
+(5, 1, 'Supino Reto', 86.0, 4, 10, '2025-05-19');
+
+-- Junho
+INSERT INTO registro_exercicio (fkRegisTreino, fkTreino, nome, carga, series, repeticoes, data)
+VALUES 
+(6, 1, 'Supino Reto', 87.0, 4, 10, '2025-06-01'),
+(6, 1, 'Supino Reto', 88.0, 4, 10, '2025-06-10');
+
+delete from registro_exercicio where idRegisExercicio in (30, 31);
+
+select * from registro_exercicio;

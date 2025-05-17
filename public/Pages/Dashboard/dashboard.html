@@ -17,6 +17,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body onload="validarSessao()">
@@ -60,9 +63,6 @@
             </select>
             <select name="Intervalo" id="selectIntervalo" disabled>
                 <option class="optIntervalo" value="">Selecione o intervalo</option>
-                <option class="optIntervalo" value="3">Últimos 3 meses</option>
-                <option class="optIntervalo" value="6">Últimos 6 meses</option>
-                <option class="optIntervalo" value="12">Últimos 12 meses</option>
             </select>
         </div>
         <div id="containerGrafico">
@@ -86,31 +86,31 @@
 
         //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
         //     Para ajustar o "select", ajuste o comando sql em src/models
-        // function obterDadosGrafico(idAquario) {
+        function obterDadosGrafico() {
 
-        //     alterarTitulo(idAquario)
+            alterarTitulo(idAquario)
 
-        //     if (proximaAtualizacao != undefined) {
-        //         clearTimeout(proximaAtualizacao);
-        //     }
+            if (proximaAtualizacao != undefined) {
+                clearTimeout(proximaAtualizacao);
+            }
 
-        //     fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-        //         if (response.ok) {
-        //             response.json().then(function (resposta) {
-        //                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-        //                 resposta.reverse();
+            fetch(`/medidas/ultimas/${idTreino}/${nomeExercicio}/${intervalo}`, { cache: 'no-store' }).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
 
-        //                 plotarGrafico(resposta, idAquario);
+                        plotarGrafico(resposta, idAquario);
 
-        //             });
-        //         } else {
-        //             console.error('Nenhum dado encontrado ou erro na API');
-        //         }
-        //     })
-        //         .catch(function (error) {
-        //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        //         });
-        // }
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+                .catch(function (error) {
+                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                });
+        }
 
         // // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
         // // Configura o gráfico (cores, tipo, etc), materializa-o na página e,
