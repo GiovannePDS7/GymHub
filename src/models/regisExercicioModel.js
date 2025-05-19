@@ -44,11 +44,9 @@ async function registrarExercicio(idUsuario, nomeTreino, carga, series, repetico
 }
 
 async function pegarUltimosDados(idTreino, nomeExercicio, intervalo) {
-
     console.log('idTreino: ' + idTreino)
     console.log('nomeExercicio: ' + nomeExercicio)
     console.log('intervalo: ' + intervalo)
-
 
     var instrucaoSql = `
 select
@@ -59,12 +57,12 @@ from
 where
     nome = '${nomeExercicio}'
     and data between date_format(curdate() - interval '${(intervalo - 1)}' month,  '%Y-%m-01')
-                and curdate()
+                and now()
     and fkTreino = '${idTreino}'
 group by
      date_format(data, '%M'), year(data), month(data)
 order by
-    year(data), month(data)  desc
+     year(data) desc, month(data) desc
 limit ${intervalo};
 `;
 
@@ -136,7 +134,7 @@ where
 group by
      date_format(data, '%M'), year(data), month(data)
 order by
-    year(data), month(data) desc
+    year(data) desc, month(data) desc
 limit 1;
 `;
 

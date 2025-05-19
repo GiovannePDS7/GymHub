@@ -80,7 +80,9 @@ selectExercicio.addEventListener('change', function () {
         selectIntervalo.disabled = false;
     }
     else {
+        grafico.innerHTML = ''
         alert('Selecione um exercício')
+        selectIntervalo.innerHTML = '<option class="optIntervalo" value="">Selecione o intervalo</option>';
         selectIntervalo.disabled = true;
     }
 })
@@ -146,9 +148,9 @@ selectIntervalo.addEventListener('change', obterDadosGrafico)
 
 
 function obterDadosGrafico() {
+    grafico.innerHTML = ''
 
     if (selectIntervalo.value == "") {
-        grafico.innerHTML = ''
         alert('Selecione o intervalo');
         return false;
     }
@@ -156,8 +158,6 @@ function obterDadosGrafico() {
     var idTreino = selectTreino.value;
     var nomeExercicio = selectExercicio.value;
     var intervalo = selectIntervalo.value;
-
-    grafico.innerHTML = ''
     if (nomeExercicio !== '') {
         for (let i = 0; i < listaTreinos.length; i++) {
             if (listaTreinos[i].idTreino == selectTreino.value) {
@@ -165,15 +165,7 @@ function obterDadosGrafico() {
                 break;
             }
         }
-        grafico.innerHTML += `
-                        <h3 id="tituloGraficos">
-                            <span id="tituloGrafico">Exibindo evolução média das cargas do treino: <b>${nomeTreino}</b> para o exercício: <b>${selectExercicio.value}</b> dos últimos ${selectIntervalo.value} meses</span>
-                        </h3>
-                        <div class="graph">
-                            <canvas id="myChartCanvas"></canvas>
-                        </div>
-                `
-
+        
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
         }
@@ -187,11 +179,22 @@ function obterDadosGrafico() {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
+                    grafico.innerHTML += `
+                        <h3 id="tituloGraficos">
+                            <span id="tituloGrafico">Exibindo evolução média das cargas do treino: <b>${nomeTreino}</b> para o exercício: <b>${selectExercicio.value}</b> dos últimos ${selectIntervalo.value} meses</span>
+                        </h3>
+                        <div class="graph">
+                            <canvas id="myChartCanvas"></canvas>
+                        </div>
+                `
                     plotarGrafico(resposta, idTreino, nomeExercicio, intervalo);
-
                 });
             } else {
-                console.error('Nenhum dado encontrado ou erro na API');
+                grafico.innerHTML = ''
+                selectIntervalo.innerHTML = '<option class="optIntervalo" value="">Selecione o intervalo</option>';
+                selectIntervalo.disabled = true
+                alert('Nenhum dado encontrado');
+                return false;
             }
         })
             .catch(function (error) {
@@ -230,7 +233,6 @@ function plotarGrafico(resposta, idTreino, nomeExercicio, intervalo) {
     console.log('----------------------------------------------')
     console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
     console.log(resposta)
-
     // Inserindo valores recebidos em estrutura para plotar o gráfico
     for (i = 0; i < resposta.length; i++) {
         var registro = resposta[i];
@@ -250,6 +252,20 @@ function plotarGrafico(resposta, idTreino, nomeExercicio, intervalo) {
     const config = {
         type: 'line',
         data: dados,
+        options: {
+            scales: {
+                x: {
+                    ticks: {
+                        color: '#fff'
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: '#fff'
+                    }
+                }
+            }
+        }
     };
 
     // Adicionando gráfico criado em div na tela

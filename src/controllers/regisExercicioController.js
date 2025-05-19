@@ -75,10 +75,11 @@ function pegarUltimosDados(req, res) {
     console.log('intervalo - controller: ' + intervalo)
 
     regisExercicioModel.pegarUltimosDados(idTreino, nomeExercicio, intervalo).then(function (resultado) {
+        console.log(`Length do restultado controller: ${resultado.length}`)
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
-            res.status(204).send("Nenhum resultado encontrado!")
+            res.status(500).send("Nenhum resultado encontrado!")
         }
     }).catch(function (erro) {
         console.log(erro);
@@ -92,6 +93,7 @@ function pegarDadosTempoReal(req, res) {
     var nomeExercicio = req.params.nomeExercicio;
 
     regisExercicioModel.pegarDadosTempoReal(idTreino, nomeExercicio).then(function (resultado) {
+
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
