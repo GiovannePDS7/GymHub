@@ -183,7 +183,25 @@ header {
 
 #tituloGraficos {
     font-family: "Raleway", sans-serif;
-    font-size: 1.3vw;
+    margin: 2% 0;
+    font-size: 1.55vw;
     color: #fff;
     font-weight: 200;
+    text-align: center;
+    width: 100%;
+}
+
+#containerGrafico {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    white-space: nowrap;
+}
+
+#grafico {
+    width: 80%;
+    padding-bottom: 2vw;
 }

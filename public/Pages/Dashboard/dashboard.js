@@ -29,7 +29,7 @@ function RecuperarTreinos() {
             idUsuarioServer: idUsuarioVar,
         }),
     })
-        .then(async function (resposta) {
+        .then(function (resposta) {
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
@@ -165,7 +165,7 @@ function obterDadosGrafico() {
                 break;
             }
         }
-        
+
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
         }
@@ -181,7 +181,7 @@ function obterDadosGrafico() {
                     resposta.reverse();
                     grafico.innerHTML += `
                         <h3 id="tituloGraficos">
-                            <span id="tituloGrafico">Exibindo evolução média das cargas do treino: <b>${nomeTreino}</b> para o exercício: <b>${selectExercicio.value}</b> dos últimos ${selectIntervalo.value} meses</span>
+                            <span id="tituloGrafico">Evolução média das cargas do treino: <b>${nomeTreino}</b> para o exercício: <b>${selectExercicio.value}</b> dos últimos <b>${selectIntervalo.value}</b> meses</span>
                         </h3>
                         <div class="graph">
                             <canvas id="myChartCanvas"></canvas>
@@ -219,7 +219,7 @@ function plotarGrafico(resposta, idTreino, nomeExercicio, intervalo) {
     let dados = {
         labels: labels,
         datasets: [{
-            label: 'Carga média',
+            label: 'Carga média em kg',
             data: [],
             fill: false,
             backgroundColor: '#000',
