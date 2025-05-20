@@ -183,7 +183,7 @@ function obterDadosGrafico() {
                         <h3 id="tituloGraficos">
                             <span id="tituloGrafico">Evolução média das cargas do treino: <b>${nomeTreino}</b> para o exercício: <b>${selectExercicio.value}</b> dos últimos <b>${selectIntervalo.value}</b> meses</span>
                         </h3>
-                        <div class="graph">
+                        <div id="graph">
                             <canvas id="myChartCanvas"></canvas>
                         </div>
                 `

@@ -146,7 +146,9 @@ header {
     margin-top: 2%;
 }
 
-#selectTreino, #selectExercicio, #selectIntervalo {
+#selectTreino,
+#selectExercicio,
+#selectIntervalo {
     font-family: "Racing Sans One", sans-serif;
     font-weight: 100;
     width: 15vw;
@@ -158,7 +160,9 @@ header {
     border: 1.5px solid #D40000;
 }
 
-#selectTreino:focus, #selectExercicio:focus, #selectIntervalo:focus {
+#selectTreino:focus,
+#selectExercicio:focus,
+#selectIntervalo:focus {
     border: 1.5px solid #b2000094;
 }
 
@@ -168,6 +172,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    margin-top: 1%;
 }
 
 #spanAux {
@@ -177,31 +182,80 @@ header {
     font-family: "Raleway", sans-serif;
 }
 
-.optTreino, .optExercicio, .optIntervalo {
+.optTreino,
+.optExercicio,
+.optIntervalo {
     background: #000;
 }
 
-#tituloGraficos {
+#tituloGrafico {
     font-family: "Raleway", sans-serif;
-    margin: 2% 0;
     font-size: 1.55vw;
     color: #fff;
     font-weight: 200;
     text-align: center;
-    width: 100%;
+}
+
+#graph {
+        margin-top: 3%;
+    height: 62vh;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #containerGrafico {
-
+    margin-top: 2%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    white-space: nowrap;
 }
 
 #grafico {
+    margin-top: 1.5%;
     width: 80%;
     padding-bottom: 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#indicadores{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.kpi{
+    border-radius: 7px;
+    color: #fff;
+    width: 22%;
+    height: 18vh;
+    border: 1px solid #D40000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1% 0;
+}
+
+.kpiTitle{
+    font-family: "Raleway", sans-serif;
+    font-size: 1vw;
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
+}
+
+.valorKPI{
+    color: #fff;
+    font-size: 3vw;
+    font-family: "Racing Sans One", sans-serif;
+    font-weight: 200;
+    text-shadow: red 1px 2px;
 }

@@ -58,11 +58,12 @@ select * from registro_exercicio;
 SET lc_time_names = 'pt_BR'; -- aqui eu coloco a configração para pt-br para retornar os meses em portugues
 
 -- select que retorna a média das cargas dos ultimox X meses de um exercício específico
+
 select date_format(data, '%M') as mes, round(avg(carga), 1) as media_carga
 from registro_exercicio
-where nome = 'Supino Reto' and data between date_format(curdate() - interval '5' month,  '%Y-%m-01') and now() and fkTreino = '1'
+where nome = 'Supino Reto' and data between date_format(curdate() - interval '2' month,  '%Y-%m-01') and now() and fkTreino = '1'
 group by date_format(data, '%M'), year(data), month(data)
-order by year(data) desc, month(data) desc limit 6;
+order by year(data) desc, month(data) desc limit 3;
 
 -- select para recuperar a media do ultimo mes inserido
 
@@ -75,6 +76,18 @@ select * from registro_exercicio where nome = 'exercicio 1';
 
 
 select * from treino;
+
+describe registro_treino;
+
+select count(idRegisTreino) as CheckIn from registro_treino where data between date_format(curdate() - interval '2' month, '%Y-%m-01') and now();
+
+select T.nome as Treino, count(RT.idRegisTreino) as 'Frequência' from registro_treino RT join treino T on RT.fkTreino = T.idTreino where RT.data
+between date_format(curdate() - interval '2' month, '%Y-%m-01') and now() group by T.nome order by count(RT.idRegisTreino) desc limit 1;
+
+select * from treino;
+
+insert into registro_treino(fkTreino, fkUsuario, data) values(2, 1, '2025-04-01');
+
 
 -- INSERTS AQUI
 
