@@ -192,9 +192,23 @@ limit 1;
         throw error;
     }
 }
+
+function TotalCheckIns(idUsuario, intervalo) {
+
+    var instrucaoSql = `
+      select count(idRegisTreino) as CheckIn from registro_treino where data between date_format(curdate() - interval '${intervalo - 1}' month, '%Y-%m-01') and now() 
+        and fkUsuario = ${idUsuario};
+    `
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+
+}
+
 module.exports = {
     pegarExercicio,
     registrarExercicio,
     pegarUltimosDados,
-    pegarDadosTempoReal
+    pegarDadosTempoReal,
+    TotalCheckIns
 };

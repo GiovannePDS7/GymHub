@@ -16,4 +16,7 @@ router.get("/tempo-real/:idTreino/:nomeExercicio/:intervalo", function (req, res
     regisExercicioController.pegarDadosTempoReal(req, res);
 })
 
+router.get("/CheckIns/:idUsuario/:intervalo", function (req, res) {
+    regisExercicioController.TotalCheckIns(req, res);
+})
 module.exports = router;

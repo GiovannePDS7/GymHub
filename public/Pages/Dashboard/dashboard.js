@@ -187,7 +187,42 @@ function obterDadosGrafico() {
                             <canvas id="myChartCanvas"></canvas>
                         </div>
                 `
+
+
+
+
+                    fetch(`/registroExercicio/CheckIns/${idUsuarioVar}/${intervalo}`, { cache: 'no-store' }).then(function (response) {
+                        if (response.ok) {
+                            resposta.json().then(json => {
+                                // console.log(json);
+
+                                if (json.length == 0) {
+                                    alert("Você não possui Check-In's , realize um já!")
+                                    window.location = "../../Pages/CheckIn/checkIn.html";
+                                }
+                                var kp1 = document.getElementById('kp1');
+
+                                kp1.innerHTML = `${json[0].CheckIn}`
+                            })
+                        } else {
+                            alert('Nenhum dado encontrado para KPI');
+                            return false;
+                        }
+                    })
+                        .catch(function (error) {
+                            console.error(`Erro na obtenção dos dados p/ KPI: ${error.message}`);
+                        });
+
+
+
+
+
+
+
+
                     plotarGrafico(resposta, idTreino, nomeExercicio, intervalo);
+
+
                 });
             } else {
                 grafico.innerHTML = ''
