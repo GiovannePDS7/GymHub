@@ -79,20 +79,19 @@ select * from treino;
 
 describe registro_treino;
 
-select count(idRegisTreino) as CheckIn from registro_treino where data between date_format(curdate() - interval '2' month, '%Y-%m-01') and now();
+select count(idRegisTreino) as CheckIn from registro_treino where data between date_format(curdate() - interval '2' month, '%Y-%m-01') and now() 
+and fkUsuario = 1;
 
 select T.nome as Treino, count(RT.idRegisTreino) as 'Frequência' from registro_treino RT join treino T on RT.fkTreino = T.idTreino where RT.data
 between date_format(curdate() - interval '2' month, '%Y-%m-01') and now() group by T.nome order by count(RT.idRegisTreino) desc limit 1;
 
 select * from treino;
 
-insert into registro_treino(fkTreino, fkUsuario, data) values(2, 1, '2025-04-01');
 
 
 -- INSERTS AQUI
 
 insert into usuario(nome, email, senha) values ('Giovanne', 'giovanne3282@gmail.com', '3282');
-
 
 
 insert into treino (nome, fkUsuario) values ('Peito e Tríceps', 1);
@@ -234,3 +233,5 @@ values(14, 1,'Crucifixo Inclinado', 30.00, 3, 12, '2025-05-01 16:00:00');
 insert into registro_exercicio(fkRegisTreino, fkTreino, nome, carga, series, repeticoes, data) 
 values(14, 1,'Tríceps Corda', 28.00, 3, 12, '2025-05-01 16:00:00');
 
+
+insert into registro_treino(fkTreino, fkUsuario, data) values(2, 1, '2025-04-01');
