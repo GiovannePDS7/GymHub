@@ -205,10 +205,36 @@ function TotalCheckIns(idUsuario, intervalo) {
 
 }
 
+function MaiorFrequencia(idUsuario, intervalo) {
+
+    var instrucaoSql = `
+select T.nome as Treino, count(RT.idRegisTreino) as Frequencia from registro_treino RT join treino T on RT.fkTreino = T.idTreino where RT.data
+between date_format(curdate() - interval '${intervalo - 1}' month, '%Y-%m-01') and now() and RT.fkUsuario = ${idUsuario} group by T.nome order by count(RT.idRegisTreino) desc limit 1;
+    `
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+
+}
+
+function MenorFrequencia(idUsuario, intervalo) {
+
+    var instrucaoSql = `
+select T.nome as Treino, count(RT.idRegisTreino) as Frequencia from registro_treino RT join treino T on RT.fkTreino = T.idTreino where RT.data
+between date_format(curdate() - interval '${intervalo - 1}' month, '%Y-%m-01') and now() and RT.fkUsuario = ${idUsuario} group by T.nome order by count(RT.idRegisTreino) asc limit 1;
+    `
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+
+}
+
 module.exports = {
     pegarExercicio,
     registrarExercicio,
     pegarUltimosDados,
     pegarDadosTempoReal,
-    TotalCheckIns
+    TotalCheckIns,
+    MaiorFrequencia,
+    MenorFrequencia
 };

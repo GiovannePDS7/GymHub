@@ -111,6 +111,7 @@ function TotalCheckIns(req, res){
     var idUsuario = req.params.idUsuario;
 
     regisExercicioModel.TotalCheckIns(idUsuario, intervalo).then(function (resultado) {
+
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -118,7 +119,38 @@ function TotalCheckIns(req, res){
         }
     }).catch(function (erro) {
         console.log(erro);
-        console.log("Houve um erro ao buscar medidas em tempo real.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+function MaiorFrequencia(req, res){
+    var intervalo = req.params.intervalo;
+    var idUsuario = req.params.idUsuario;
+
+    regisExercicioModel.MaiorFrequencia(idUsuario, intervalo).then(function (resultado) {
+
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+function MenorFrequencia(req, res){
+    var intervalo = req.params.intervalo;
+    var idUsuario = req.params.idUsuario;
+
+    regisExercicioModel.MenorFrequencia(idUsuario, intervalo).then(function (resultado) {
+
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
         res.status(500).json(erro.sqlMessage);
     });
 }
@@ -128,5 +160,7 @@ module.exports = {
     registrarExercicio,
     pegarUltimosDados,
     pegarDadosTempoReal,
-    TotalCheckIns
+    TotalCheckIns,
+    MaiorFrequencia,
+    MenorFrequencia
 }

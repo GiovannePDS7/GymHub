@@ -197,7 +197,7 @@ header {
 }
 
 #graph {
-        margin-top: 3%;
+    margin-top: 3%;
     height: 62vh;
     width: 90%;
     display: flex;
@@ -224,17 +224,17 @@ header {
     align-items: center;
 }
 
-#indicadores{
+#indicadores {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-.kpi{
+.kpi {
     border-radius: 7px;
     color: #fff;
-    width: 22%;
+    width: 24%;
     height: 18vh;
     border: 1px solid #D40000;
     display: flex;
@@ -244,7 +244,7 @@ header {
     padding: 1% 0;
 }
 
-.kpiTitle{
+.kpiTitle {
     font-family: "Raleway", sans-serif;
     font-size: 1vw;
     color: #fff;
@@ -252,9 +252,9 @@ header {
     text-align: center;
 }
 
-.valorKPI{
+.valorKPI {
     color: #fff;
-    font-size: 3vw;
+    font-size: 2.7vw;
     font-family: "Racing Sans One", sans-serif;
     font-weight: 200;
     text-shadow: red 1px 2px;

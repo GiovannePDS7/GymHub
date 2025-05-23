@@ -19,4 +19,10 @@ router.get("/tempo-real/:idTreino/:nomeExercicio/:intervalo", function (req, res
 router.get("/CheckIns/:idUsuario/:intervalo", function (req, res) {
     regisExercicioController.TotalCheckIns(req, res);
 })
+router.get("/MaiorFrequencia/:idUsuario/:intervalo", function (req, res) {
+    regisExercicioController.MaiorFrequencia(req, res);
+})
+router.get("/MenorFrequencia/:idUsuario/:intervalo", function (req, res) {
+    regisExercicioController.MenorFrequencia(req, res);
+})
 module.exports = router;
