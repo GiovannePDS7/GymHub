@@ -19,6 +19,12 @@
 </head>
 
 <body>
+    <div id="containerAlerta">
+        <div id="AlertaMsg">
+            <span id="mensagem"></span>
+            <button id="btnAlerta" onclick="Alerta()">Ok</button>
+        </div>
+    </div>
     <div id="containerVoltar">
         <a href="../../index.html"><img src="../../Assets/voltar.png" id="voltarIcon" alt=""></a>
     </div>
@@ -49,13 +55,20 @@
         </div>
     </main>
     <script>
+        var containerAlerta = document.getElementById('containerAlerta')
+        var mensagem = document.getElementById('mensagem')
+
+        function Alerta() {
+            containerAlerta.style.display = 'none'
+        }
 
         function Entrar() {
             var emailVar = email.value;
             var senhaVar = senha.value;
 
             if (emailVar == "" || senhaVar == "") {
-                alert('Preencha os dados')
+                containerAlerta.style.display = 'flex'
+                mensagem.innerHTML = 'Preencha os campos!'
                 return false;
             }
 
@@ -87,7 +100,10 @@
                     });
 
                 } else {
-                    alert('Login inválido');
+                    containerAlerta.style.display = 'flex'
+                    mensagem.innerHTML = 'Login inválido!'
+                    email.value = ''
+                    senha.value = ''
                     console.log("Houve um erro ao tentar realizar o login!");
 
                     resposta.text().then(texto => {

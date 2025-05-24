@@ -17,11 +17,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
 
 </head>
 
+
 <body onload="validarSessao()">
+ <div id="containerAlerta">
+            <div id="AlertaMsg">
+                <span id="mensagem"></span>
+                <button id="btnAlerta" onclick="Alerta()">Ok</button>
+            </div>
+        </div>
     <div id="containerFerramentas">
         <div id="containerSair">
             <button id="btnSair" onclick="limparSessao()">Sair</button>
@@ -49,7 +58,9 @@
             </div>
         </div>
     </header>
+
     <main>
+       
         <h2 id="titleForm">Faça seu Check-In</h2>
         <div id="containerForm">
             <div id="form">
@@ -62,7 +73,7 @@
                 </div>
                 <div id="linha"></div>
                 <div id="containerExercicios">
-                    
+
                 </div>
                 <div id="linha2"></div>
                 <button id="btnRegistrar" onclick="registrarTreino()">Registrar</button>

@@ -42,9 +42,8 @@ function RecuperarTreinos() {
                     // console.log(json);
 
                     if (json.length == 0) {
-                        alert('Você não possui treinos cadastrados, crie um já!')
-
-                        window.location = "../../Pages/CriarTreino/criarTreino.html";
+                        containerAlerta.style.display = 'flex'
+                        mensagem.innerHTML = 'Você não possui treinos cadastrados, crie um já!'
                     }
                     for (let i = 0; i < json.length; i++) {
                         var treino = {
@@ -62,7 +61,8 @@ function RecuperarTreinos() {
 
 
             } else {
-                alert('Erro ao recuperar treino')
+                containerAlerta.style.display = 'flex'
+                mensagem.innerHTML = 'Erro ao recuperar treino'
             }
         })
         .catch(function (resposta) {
@@ -135,7 +135,8 @@ selectTreino.addEventListener('change', function () {
 
 
                 } else {
-                    alert('Erro ao recuperar exercicio')
+                    containerAlerta.style.display = 'flex'
+                    mensagem.innerHTML = 'Erro ao recuperar exercicio'
                 }
             })
             .catch(function (resposta) {
@@ -165,7 +166,8 @@ function registrarTreino() {
 
     for (let i = 0; i < inputFormCargaRep.length; i++) {
         if (inputFormCargaRep[i].value == '') {
-            alert('Preencha todos os dados de cada exercicio')
+            containerAlerta.style.display = 'flex'
+            mensagem.innerHTML = 'Preencha todos os dados de cada exercicio'
             return false;
         }
     }
@@ -198,7 +200,7 @@ function registrarTreino() {
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    alert('Registro de treino criado!')
+
 
 
                     for (let i = 0; i < listaRegisExercicios.length; i++) {
@@ -224,8 +226,8 @@ function registrarTreino() {
                                 console.log(`#ERRO: ${resposta}`);
                             });
                     }
-                    alert("Check-In realizado com sucesso!")
-                    window.location = "../CheckIn/checkIn.html";
+                    containerAlerta.style.display = 'flex'
+                    mensagem.innerHTML = 'Check-In realizado com sucesso!'
                 }
             })
             .catch(function (resposta) {
@@ -234,4 +236,20 @@ function registrarTreino() {
     }
 
     return false;
+}
+
+var containerAlerta = document.getElementById('containerAlerta')
+var mensagem = document.getElementById('mensagem')
+
+function Alerta() {
+    var valorMensagem = document.getElementById('mensagem').innerText
+    if (valorMensagem == 'Você não possui treinos cadastrados, crie um já!') {
+        window.location = "../../Pages/CriarTreino/criarTreino.html";
+    }
+    else if (valorMensagem == 'Check-In realizado com sucesso!') {
+        window.location = "../CheckIn/checkIn.html";
+    }
+    else {
+        containerAlerta.style.display = 'none'
+    }
 }

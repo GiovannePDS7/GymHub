@@ -36,9 +36,8 @@ function RecuperarTreinos() {
                     // console.log(json);
 
                     if (json.length == 0) {
-                        alert("Você não possui treinos cadastrados, crie um já!");
-
-                        window.location = "../../Pages/CriarTreino/criarTreino.html";
+                        containerAlerta.style.display = 'flex'
+                        mensagem.innerHTML = 'Você não possui treinos cadastrados, crie um já!'
                     }
                     for (let i = 0; i < json.length; i++) {
                         var treino = {
@@ -54,7 +53,8 @@ function RecuperarTreinos() {
                     }
                 });
             } else {
-                alert("Erro ao recuperar treino");
+                containerAlerta.style.display = 'flex'
+                mensagem.innerHTML = 'Erro ao recuperar treino'
             }
         })
         .catch(function (resposta) {
@@ -80,7 +80,8 @@ selectExercicio.addEventListener("change", function () {
         selectIntervalo.disabled = false;
     } else {
         grafico.innerHTML = "";
-        alert("Selecione um exercício");
+        containerAlerta.style.display = 'flex'
+        mensagem.innerHTML = 'Selecione um exercício';
         selectIntervalo.innerHTML =
             '<option class="optIntervalo" value="">Selecione o intervalo</option>';
         selectIntervalo.disabled = true;
@@ -129,14 +130,16 @@ selectTreino.addEventListener("change", function () {
 
                     selectExercicio.disabled = false;
                 } else {
-                    alert("Erro ao recuperar exercicio");
+                    containerAlerta.style.display = 'flex'
+                    mensagem.innerHTML = 'Erro ao recuperar exercicio'
                 }
             })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
     } else {
-        alert("Selecione um treino");
+        containerAlerta.style.display = 'flex'
+        mensagem.innerHTML = 'Selecione um treino'
         selectExercicio.disabled = true;
     }
 });
@@ -151,7 +154,8 @@ function obterDadosGrafico() {
     indicadores.innerHTML = "";
     containerGrafico.style.height = '0';
     if (selectIntervalo.value == "") {
-        alert("Selecione o intervalo");
+        containerAlerta.style.display = 'flex'
+        mensagem.innerHTML = 'Selecione o intervalo'
         return false;
     }
 
@@ -201,8 +205,8 @@ function obterDadosGrafico() {
                                 if (resposta.ok) {
                                     resposta.json().then((json) => {
                                         if (json.length == 0) {
-                                            alert("Você não possui Check-In's , realize um já!");
-                                            window.location = "../../Pages/CheckIn/checkIn.html";
+                                            containerAlerta.style.display = 'flex'
+                                            mensagem.innerHTML = "Você não possui Check-In's , realize um já!"
                                         }
                                         indicadores.innerHTML = `<div class="kpi">
                     <span class="kpiTitle" id="kpiTitle1"></span>
@@ -222,7 +226,9 @@ function obterDadosGrafico() {
                                         kp1.innerHTML = `${json[0].CheckIn}`;
                                     });
                                 } else {
-                                    alert("Nenhum dado encontrado para KPI");
+                                    containerAlerta.style.display = 'flex'
+                                    mensagem.innerHTML = "Nenhum dado encontrado para KPI"
+
                                     return false;
                                 }
                             })
@@ -240,8 +246,9 @@ function obterDadosGrafico() {
                                 if (resposta.ok) {
                                     resposta.json().then((json) => {
                                         if (json.length == 0) {
-                                            alert("Você não possui Check-In's , realize um já!");
-                                            window.location = "../../Pages/CheckIn/checkIn.html";
+                                            containerAlerta.style.display = 'flex'
+                                            mensagem.innerHTML = "Você não possui Check-In's , realize um já!"
+                                            Alerta()
                                         }
                                         var kp2 = document.getElementById("kp2");
                                         var kpiTitle2 = document.getElementById("kpiTitle2");
@@ -249,7 +256,9 @@ function obterDadosGrafico() {
                                         kp2.innerHTML = `${json[0].Treino}`;
                                     });
                                 } else {
-                                    alert("Nenhum dado encontrado para KPI");
+                                    containerAlerta.style.display = 'flex'
+                                    mensagem.innerHTML = "Nenhum dado encontrado para KPI"
+
                                     return false;
                                 }
                             })
@@ -267,8 +276,9 @@ function obterDadosGrafico() {
                                 if (resposta.ok) {
                                     resposta.json().then((json) => {
                                         if (json.length == 0) {
-                                            alert("Você não possui Check-In's , realize um já!");
-                                            window.location = "../../Pages/CheckIn/checkIn.html";
+                                            containerAlerta.style.display = 'flex'
+                                            mensagem.innerHTML = "Você não possui Check-In's , realize um já!"
+                                            Alerta()
                                         }
                                         var kp3 = document.getElementById("kp3");
                                         var kpiTitle3 = document.getElementById("kpiTitle3");
@@ -276,7 +286,8 @@ function obterDadosGrafico() {
                                         kp3.innerHTML = `${json[0].Treino}`;
                                     });
                                 } else {
-                                    alert("Nenhum dado encontrado para KPI");
+                                    containerAlerta.style.display = 'flex'
+                                    mensagem.innerHTML = "Nenhum dado encontrado para KPI"
                                     return false;
                                 }
                             })
@@ -293,7 +304,8 @@ function obterDadosGrafico() {
                     selectIntervalo.innerHTML =
                         '<option class="optIntervalo" value="">Selecione o intervalo</option>';
                     selectIntervalo.disabled = true;
-                    alert("Nenhum dado encontrado");
+                    containerAlerta.style.display = 'flex'
+                    mensagem.innerHTML = "Nenhum dado encontrado"
                     return false;
                 }
             })
@@ -303,7 +315,8 @@ function obterDadosGrafico() {
                 );
             });
     } else {
-        alert("Selecione um exercício");
+        containerAlerta.style.display = 'flex'
+        mensagem.innerHTML = "Selecione um exercício"
     }
 }
 
@@ -453,4 +466,20 @@ function atualizarGrafico(idTreino, nomeExercicio, intervalo, dados, myChart) {
         .catch(function (error) {
             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
+}
+
+var containerAlerta = document.getElementById('containerAlerta')
+var mensagem = document.getElementById('mensagem')
+
+function Alerta() {
+    var valorMensagem = document.getElementById('mensagem').innerText
+    if (valorMensagem == 'Você não possui treinos cadastrados, crie um já!') {
+        window.location = "../../Pages/CriarTreino/criarTreino.html";
+    }
+    else if (valorMensagem == "Você não possui Check-In's , realize um já!") {
+        window.location = "../../Pages/CheckIn/checkIn.html";
+    }
+    else {
+        containerAlerta.style.display = 'none'
+    }
 }

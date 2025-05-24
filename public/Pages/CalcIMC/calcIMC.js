@@ -28,7 +28,14 @@ function Calcular() {
         spanResultado.innerHTML = `Seu IMC é: <b>${IMC.toFixed(2)}</b>`
     }
     else {
-        alert('Preencha os dados')
+        containerAlerta.style.display = 'flex'
+        mensagem.innerHTML = 'Preencha os dados'
     }
 
+}
+var containerAlerta = document.getElementById('containerAlerta')
+var mensagem = document.getElementById('mensagem')
+
+function Alerta() {
+    containerAlerta.style.display = 'none'
 }

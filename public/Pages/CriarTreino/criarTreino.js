@@ -48,7 +48,8 @@ function ExcluirEx() {
         ultimoEx.remove()
     }
     else {
-        alert('Não é possível criar um treino sem exercícios')
+        containerAlerta.style.display = 'flex'
+        mensagem.innerHTML = 'Não é possível criar um treino sem exercícios'
     }
 }
 
@@ -67,7 +68,8 @@ function CriarTreino() {
 
         for (let i = 0; i < nomeExerciciosVar.length; i++) {
             if (nomeExerciciosVar[i].value == '') {
-                alert('Prencha todos os exercícios');
+                containerAlerta.style.display = 'flex'
+                mensagem.innerHTML = 'Prencha todos os exercícios'
                 return false;
             }
         }
@@ -115,14 +117,14 @@ function CriarTreino() {
                                 console.log(`#ERRO: ${resposta}`);
                             });
                     }
-                    alert('Treino cadastrado com sucesso');
-
-                    window.location = "../../Pages/CriarTreino/criarTreino.html";
+                    containerAlerta.style.display = 'flex'
+                    mensagem.innerHTML = 'Treino cadastrado com sucesso'
 
                 } else {
                     var erroDaController = await resposta.json(); //Recebe qualquer erro marcado da controller
                     console.log('Erro ao cadastrar treino')
-                    alert('Erro ao cadastrar: ' + erroDaController.erroTreino) //Se fosse outro erro sem ser de email acredito que daria um alert inconsistente
+                    containerAlerta.style.display = 'flex'
+                    mensagem.innerHTML = 'Erro ao cadastrar: ' + erroDaController.erroTreino
                 }
             })
             .catch(function (resposta) {
@@ -133,8 +135,21 @@ function CriarTreino() {
         return false;
     }
     else {
-        alert('Preencha o campo nome do treino')
+        containerAlerta.style.display = 'flex'
+        mensagem.innerHTML = 'Preencha o campo nome do treino'
         return false;
     }
 }
 
+var containerAlerta = document.getElementById('containerAlerta')
+var mensagem = document.getElementById('mensagem')
+
+function Alerta() {
+    var valorMensagem = document.getElementById('mensagem').innerText
+    if (valorMensagem == 'Treino cadastrado com sucesso') {
+        window.location = "../../Pages/CriarTreino/criarTreino.html";
+    }
+    else {
+        containerAlerta.style.display = 'none'
+    }
+}

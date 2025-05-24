@@ -19,6 +19,12 @@
 </head>
 
 <body>
+    <div id="containerAlerta">
+        <div id="AlertaMsg">
+            <span id="mensagem"></span>
+            <button id="btnAlerta" onclick="Alerta()">Ok</button>
+        </div>
+    </div>
     <div id="containerVoltar">
         <a href="../../index.html"><img src="../../Assets/voltar.png" id="voltarIcon" alt=""></a>
     </div>
@@ -52,6 +58,18 @@
         </div>
     </main>
     <script>
+        var containerAlerta = document.getElementById('containerAlerta')
+        var mensagem = document.getElementById('mensagem')
+
+        function Alerta() {
+            var valorMensagem = document.getElementById('mensagem').innerText
+            if (valorMensagem == 'Cadastro efetuado') {
+                window.location = "../../Pages/Login/login.html";
+            }
+            else {
+                containerAlerta.style.display = 'none'
+            }
+        }
 
         function Cadastrar() {
 
@@ -66,17 +84,20 @@
                 senhaVar == "" ||
                 confirmSenhaVar == ""
             ) {
-                alert('Preencha todos os campos')
+                containerAlerta.style.display = 'flex'
+                mensagem.innerHTML = 'Preencha todos os campos!'
                 return false;
             }
             if (!emailVar.includes('@') || !emailVar.includes('.')) {
-                alert('Insira um email válido');
+                containerAlerta.style.display = 'flex'
+                mensagem.innerHTML = 'Insira um email válido'
                 return false;
             }
 
 
             if (senhaVar != confirmSenhaVar) {
-                alert('As senhas não coincidem');
+                containerAlerta.style.display = 'flex'
+                mensagem.innerHTML = 'As senhas não coincidem'
                 return false;
             }
 
@@ -98,15 +119,15 @@
                     console.log("resposta: ", resposta);
 
                     if (resposta.ok) { //Status == 200 'ok'
-                        alert('Cadastro efetuado');
-
-                        window.location = "../../Pages/Login/login.html";
-
+                        containerAlerta.style.display = 'flex'
+                        mensagem.innerHTML = 'Cadastro efetuado'
 
                     } else {
                         var erroDaController = await resposta.json(); //Recebe qualquer erro marcado da controller
                         console.log('Erro ao cadastrar')
-                        alert('Erro ao cadastrar: ' + erroDaController.erroEmail) //Se fosse outro erro sem ser de email acredito que daria um alert inconsistente
+                        containerAlerta.style.display = 'flex'
+                        mensagem.innerHTML = 'Erro ao cadastrar: ' + erroDaController.erroEmail  //Se fosse outro erro sem ser de email acredito que daria um alert inconsistente
+
                     }
                 })
                 .catch(function (resposta) {

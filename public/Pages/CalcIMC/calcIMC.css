@@ -265,3 +265,58 @@ label {
     font-weight: 200;
     text-shadow: red 1px 2px;
 }
+
+
+#containerAlerta {
+    z-index: 999;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: #000000cb;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#AlertaMsg {
+    background: #000;
+    width: 30%;
+    height: 30%;
+    border: 1px solid #D40000;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border-radius: 8px;
+}
+
+#mensagem {
+    font-family: "Raleway", sans-serif;
+    color: #fff;
+    font-size: 1.5vw;
+}
+
+#btnAlerta {
+    all: unset;
+    font-family: "Racing Sans One", sans-serif;
+    font-weight: 100;
+    color: #fff;
+    cursor: pointer;
+    background: #D40000;
+    height: 2.3vw;
+    width: 8vw;
+    text-align: center;
+    border-radius: 30px;
+    transition: 0.2s ease;
+    font-size: 1.4vw;
+}
+
+#btnAlerta:hover {
+    background: #b2000094;
+
+}
+
+#btnAlerta:active {
+    transform: scale(0.92);
+
+}

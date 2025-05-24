@@ -49,12 +49,6 @@ create table registro_exercicio(
     data TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
 );
 
-select * from treino;
-select * from exercicio;
-select * from usuario;
-select * from registro_treino;
-select * from registro_exercicio;
-
 SET lc_time_names = 'pt_BR'; -- aqui eu coloco a configração para pt-br para retornar os meses em portugues
 
 -- select que retorna a média das cargas dos ultimox X meses de um exercício específico
@@ -68,31 +62,26 @@ order by year(data) desc, month(data) desc limit 3;
 -- select para recuperar a media do ultimo mes inserido
 
 select date_format(data, '%M') as mes, round(avg(carga), 1) as media_carga
-from registro_exercicio where	nome = 'Supino Reto' and fkTreino = 1
+from registro_exercicio where nome = 'Supino Reto' and fkTreino = 1
 group by date_format(data, '%M'), year(data), month(data)
 order by year(data) desc, month(data) desc  limit 1;
 
-select * from registro_exercicio where nome = 'exercicio 1';
-
-
-select * from treino;
-
+describe registro_exercicio;
 describe registro_treino;
 
+-- KPI's
 select count(idRegisTreino) as CheckIn from registro_treino where data between date_format(curdate() - interval '2' month, '%Y-%m-01') and now() 
 and fkUsuario = 1;
 
 select T.nome as Treino, count(RT.idRegisTreino) as Frequencia from registro_treino RT join treino T on RT.fkTreino = T.idTreino where RT.data
 between date_format(curdate() - interval '2' month, '%Y-%m-01') and now() and RT.fkUsuario = 1 group by T.nome order by count(RT.idRegisTreino) desc limit 1;
 
-select * from treino;
-
-
+select T.nome as Treino, count(RT.idRegisTreino) as Frequencia from registro_treino RT join treino T on RT.fkTreino = T.idTreino where RT.data
+between date_format(curdate() - interval '11' month, '%Y-%m-01') and now() and RT.fkUsuario = 1 group by T.nome order by count(RT.idRegisTreino) asc limit 1;
 
 -- INSERTS AQUI
 
 insert into usuario(nome, email, senha) values ('Giovanne', 'giovanne3282@gmail.com', '3282');
-
 
 insert into treino (nome, fkUsuario) values ('Peito e Tríceps', 1);
 insert into treino (nome, fkUsuario) values ('Costas e Bíceps', 1);
