@@ -25,9 +25,6 @@ function registrarTreino(idTreino, idUsuario) {
     return database.executar(instrucaoSql);
 }
 
-
-
-
 module.exports = {
     pegarTreino,
     registrarTreino

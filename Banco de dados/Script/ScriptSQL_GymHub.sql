@@ -222,5 +222,13 @@ values(14, 1,'Crucifixo Inclinado', 30.00, 3, 12, '2025-05-01 16:00:00');
 insert into registro_exercicio(fkRegisTreino, fkTreino, nome, carga, series, repeticoes, data) 
 values(14, 1,'Tríceps Corda', 28.00, 3, 12, '2025-05-01 16:00:00');
 
+-- mes de junho 2025
+insert into registro_treino(fkTreino, fkUsuario, data) values(1, 1, '2025-06-01');
+insert into registro_exercicio(fkRegisTreino, fkTreino, nome, carga, series, repeticoes, data) 
+values(15, 1,'Supino Reto', 34.00, 3, 12, '2025-06-01 16:00:00');
+insert into registro_exercicio(fkRegisTreino, fkTreino, nome, carga, series, repeticoes, data) 
+values(15, 1,'Crucifixo Inclinado', 32.00, 3, 12, '2025-06-01 16:00:00');
+insert into registro_exercicio(fkRegisTreino, fkTreino, nome, carga, series, repeticoes, data) 
+values(15, 1,'Tríceps Corda', 28.50, 3, 12, '2025-06-01 16:00:00');
 
 insert into registro_treino(fkTreino, fkUsuario, data) values(2, 1, '2025-04-01');
