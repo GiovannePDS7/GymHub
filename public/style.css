@@ -169,7 +169,7 @@ footer {
     padding-top: 12vh;
     height: 100vh;
     width: 100%;
-    background: url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1375&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background: url('./Assets/imagemIndex.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-size: cover;
