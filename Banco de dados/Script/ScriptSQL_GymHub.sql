@@ -43,7 +43,7 @@ create table registro_exercicio(
     fkTreino int not null,
 	constraint fkTreino_registro_exercicio foreign key (fkTreino) references registro_treino(fkTreino),
     nome varchar(45) not null,
-    carga decimal(4, 2) not null,
+    carga decimal(6, 2) not null,
     series int not null,
     repeticoes int not null,
     data TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
@@ -80,8 +80,6 @@ select T.nome as Treino, count(RT.idRegisTreino) as Frequencia from registro_tre
 between date_format(curdate() - interval '11' month, '%Y-%m-01') and now() and RT.fkUsuario = 1 group by T.nome order by count(RT.idRegisTreino) asc limit 1;
 
 -- INSERTS AQUI
-
-insert into usuario(nome, email, senha) values ('Giovanne', 'giovanne3282@gmail.com', '3282');
 
 insert into treino (nome, fkUsuario) values ('Peito e Tríceps', 1);
 insert into treino (nome, fkUsuario) values ('Costas e Bíceps', 1);
