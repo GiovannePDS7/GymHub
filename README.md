@@ -1,5 +1,5 @@
 <div align="center">
-  <img src='./public/Assets/Logo/LogoIcon.png' alt="Logo do Projeto" width="200">
+  <img src='./public/Assets/Logo/LogoIcon.png' alt="Logo do Projeto" width="160">
 </div>
 
 # GymHub - Platform for physical evolution and monitoring
