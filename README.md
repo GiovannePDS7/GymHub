@@ -16,4 +16,33 @@ Help individuals who frequent gyms to directly observe their progress, showing a
 
 GymHub contains some key features:
 
-1. **Body mass index calculator:**
+1. **Body mass index calculator:** Body Calculator to Categorize Your Weight Based on Your Height;
+2. **Training creation:** Create your personalized workout;
+3. **Training check-in:** Record all your workouts to eventually track your progress;
+4. **Dashboard:** Track your progress with graphs and indicators; 
+
+## How to use?
+
+1. **Clone the repository to your computer:**
+
+```bash
+git clone https://github.com/GiovannePDS7/GymHub.git
+```
+
+2. **Acess folder**
+```bash
+cd GymHub
+```
+
+3. **Now open the `env.dev` file and configure your bank data.**
+4. **Access your database and run the `ScriptSQL_GymHub.sql` script** 
+5. **Open the project in the terminal and run:**
+```bash
+npm install
+```
+**and**
+```bash
+npm start
+```
+6. **Access the localhost available in the terminal.**
+---
